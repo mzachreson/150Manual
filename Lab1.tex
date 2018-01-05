@@ -1,0 +1,537 @@
+\documentclass[twoside,11pt,ShortChapTitles]{BYUTextbook}
+
+\usepackage{soul}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+\usepackage{siunitx}
+\sisetup{round-mode = figures,
+  round-precision = 3, scientific-notation=true}
+  \usepackage{marginfix}
+  
+\usepackage{mathtools}
+%\usepackage{amsfonts}
+%\usepackage{amsmath}
+%\usepackage{graphicx}
+%\usepackage{epstopdf}
+%\usepackage{amssymb}
+%\usepackage{hyperref}
+%\usepackage{textcomp}
+%\usepackage{listings}
+%\usepackage{units}
+%\usepackage{color}
+
+%\definecolor{dkgreen}{rgb}{0,0.6,0}
+%\definecolor{gray}{rgb}{0.5,0.5,0.5}
+%\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+%\lstset{frame=tb,
+%  language=Python,
+%  aboveskip=3mm,
+%  belowskip=3mm,
+%  showstringspaces=false,
+%  columns=flexible,
+%  basicstyle={\small\ttfamily},
+%  numbers=none,
+%  numberstyle=\tiny\color{gray},
+%  keywordstyle=\color{blue},
+%  commentstyle=\color{dkgreen},
+%  stringstyle=\color{mauve},
+%  breaklines=true,
+%  breakatwhitespace=true,
+%  tabsize=3, upquote=true}
+\renewcommand{\chaptername}{Lab}
+\lstMakeShortInline[columns=fixed]|
+\setcounter{chapter}{0}
+
+\begin{document}
+
+\chapter{Measurement and Uncertainty I\label{Measurement and Uncertainty 1}}
+
+\setcounter{page}{1}
+
+\section{Lab Notebooks}
+
+Hopefully you noticed that a lab notebook is required for this class. The lab
+notebook is designed to be a record of what you did. If you had to repeat
+today's experiment five years from now, could you do it based on what you
+write today?
+
+At most professional labs and major engineering companies your lab notebook is
+considered the property of the company or organization and will stand as a legal document. It is the proof that
+you did the experiment that you say you did, and that you got the results you
+say you got. It has to be readable and understandable to someone who did not
+participate in the lab with you. This is a pretty tall order. 
+
+{\em You should write  in your lab notebook as you go}, not leave it until the end of the day\sidenote{A lab notebook is not a lab report.  You just nned to take well organized notes on what you did and what you found.}.  It will be much easier, and will take you less time as you go.   To help you plan your entries, here are the criteria I will use to grade your lab book:
+
+\begin{itemize}
+\item Describing the goal for the work
+
+\begin{itemize}
+\item Usually this takes the form of a physical law we will test.
+\end{itemize}
+
+\item Give predictive equations and uncertainties for the predictions based on
+the physical law.
+
+\begin{itemize}
+\item This usually involves forming a mathematical model. You should record
+any assumptions that went into the model (e.g. no air resistance, point
+sources, massless ropes, etc.).
+
+\begin{itemize}
+\item In lab today we will find the volume of the room. Your mathematical
+model will likely be $V=\ell\times w\times h.$ The mathematical model is not
+necessarily something complicated, but the reader needs to know how you are
+doing your calculations.
+\end{itemize}
+\end{itemize}
+
+\item Give your procedure
+
+\begin{itemize}
+\item Recording what you really did (not the lab instructions), tell what
+changes you make in your procedure as you make them.
+
+\item Record as you do the work.
+
+\item Record the equipment used and settings, values, etc. for that equipment
+(see next item).
+
+\item Did you learn how to use any new equipment? What did you learn that you
+want to recall later (say, when taking the final, or when you are a
+professional and need to use a similar piece of equipment five years from now).
+\end{itemize}
+
+\item Record the data you used. The data are all the measurements you took
+plus your best estimate of the uncertainties in the measurements. Record any
+values you got from tables or published sources (or from your professor) and
+state where you got these values. You don't always want to write down all the
+data you use. If you have a large set of values, you can place them in a file,
+and then record the file name and location in your lab notebook. Make sure
+this is a file location that does not change (emailing the data to yourself is
+not a good plan).
+
+\item Give a record of the analysis you performed. You should have given some
+idea of how you got your predictive equation. Now, what did you do to get the
+data through the equation? Were there any extra calculations? Did you obtain a
+set of  ``truth data" (data from tables or
+published sources, or from an alternate experiment) for your experiment? If
+so, did you do any calculations, have any uncertainty, etc. associated with
+the truth values?
+
+\item Give a brief statement of your results and their associated uncertainties.
+
+\item Draw conclusions
+
+\begin{itemize}
+\item Do your results support the theory? Why or why not? What else did you
+learn along the way that you want to record.
+
+\item This is where we may compare the percent error to our relative uncertainty.
+\end{itemize}
+\end{itemize}
+
+
+
+\section{Assignment: Practice with Measurement and Uncertainty calculations.}
+
+\subsection{Part 1 Percent Error: Mass of a Cylinder--the hard way}
+
+\begin{itemize}
+\item Given the density of a metal cylinder, use this density to determine the
+mass the cylinder.
+
+\begin{itemize}
+\item You cannot directly measure the mass of the cylinder, You will be
+provided a mass of the cylinder by your instructor to compare with your
+calculated value.
+
+\item Report your method for obtaining the mass of the cylinder in your lab
+notebook (not just your result, but tell yourself in your notebook \emph{how
+you got your result}).
+
+\item Report the following results: 1) Density of the cylinder, 2) Predicted
+Mass of the cylinder, 3) Actual Mass of the cylinder. Comment on the accuracy
+and precision of your measurement.
+
+\item Resources: You may use any equipment or other resources found in the lab
+or on the internet
+\end{itemize}
+\end{itemize}
+
+\subsection{Part 2 Combining Uncertainty: Volume of the room}
+
+\begin{itemize}
+\item Determine the volume of this room, including uncertainties. Describe
+your method fully in your lab notebook, including which measuring instruments
+you used and why, and the uncertainty in each of your measurements.
+
+\item The relative uncertainty in the volume is
+\[
+\frac{\delta V}{V}=\frac{\delta L}{L}+\frac{\delta H}{H}+\frac{\delta W}{W}
+\]
+from Taylor's equation 2.28 or from our algebraic method multiplication rule.
+
+\item Compare your answers with those from your neighboring research
+institutions at the other tables. Are your answers the same to within the
+values of your uncertainty? If not, explain why they aren't.
+\end{itemize}
+
+\subsection{Part 3: Tie to Experimentation}
+
+\begin{itemize}
+\item We will learn in this class that you should understand the uncertainties
+in our measuring devices \emph{before} you start performing an experiment.
+From what you have experienced so far today, why do you think this is so?
+\end{itemize}
+
+\subsection{Part 4 Combining Uncertainty: Determine the Volume of a Stack of
+Paper}
+
+\begin{itemize}
+\item Determine the volume of $20$ pieces of paper (you can use more, but if
+you do, replace the number $20$ with your actual number in the equation below).
+
+\item Determine the uncertainty in your measurement.
+
+\item Use your measurement to find the volume of one sheet of paper by
+dividing. Also determine the uncertainty in your calculation. This should be
+something like
+\[
+\delta V_{1}=\frac{\delta V_{20}}{20}
+\]
+explain what this means in your lab notebook.
+
+\item Now measure the volume of one piece of paper directly using instruments
+(I might recommend a micrometer--ask if you have not used one before).
+
+\item How do your measurements compare?
+
+\item Which one is more accurate? Which is more precise? Why?
+\end{itemize}
+
+
+
+\end{document}
+
+% END OF DOCUMENT =======================================================
+
+
+%SECTION ON LAB NOTEBOOKS =================================================
+
+
+
+%END SECTION ON LAB NOTEBOOKS ==============================================
+
+
+
+%EXCISED MATERIAL==================================================
+
+We can see that if you have $z=x+y$ then you just add the uncertainties
+$\delta z=\delta x+\delta y.$ Of course $z$, $x,$ and $y$ stand for any
+variable. But how do we know this is true? Here are the details of how the
+algebraic method works
+
+\subsubsection{Multiplication}
+
+To multiply two measurements, say\[
+m_{measured}=m_{N}\pm\delta m
+\]\[
+v_{measured}=v_{N}\pm\delta v
+\]
+
+
+We could write these as\[
+m_{measured}=m_{N}\left(  1\pm\frac{\delta m}{\left\vert m_{N}\right\vert
+}\right)
+\]\[
+v_{measured}=v_{N}\left(  1\pm\frac{\delta v}{\left\vert v_{N}\right\vert
+}\right)
+\]
+
+
+This gives us the measurement in terms of the fractional uncertainties. If we
+wish to compute
+\[
+p=mv
+\]
+we use
+\[
+p_{N}=m_{N}v_{N}
+\]
+but what is the uncertainty in $p?$
+
+The largest value of $p$ is given by\[
+p_{\text{large}}=m_{\mathbf{N}}v_{\mathbf{N}}\left(  1+\frac{\delta
+m}{\left\vert m_{N}\right\vert }\right)  \left(  1+\frac{\delta v}{\left\vert
+v_{\mathbf{N}}\right\vert }\right)
+\]
+which can be written as\[
+p_{\text{large}}=m_{\mathbf{N}}v_{\mathbf{N}}\left(  1+\frac{\delta
+m}{\left\vert m_{\mathbf{N}}\right\vert }+\frac{\delta v}{\left\vert
+v_{\mathbf{N}}\right\vert }+\frac{\delta v}{\left\vert v_{\mathbf{N}}\right\vert }\frac{\delta m}{\left\vert m_{\mathbf{N}}\right\vert }\right)
+\]
+We reason that fractional uncertainties should be small, so products of
+fractional uncertainties should be very small. We will ignore the very small
+term\[
+\frac{\delta m}{\left\vert v_{\mathbf{N}}\right\vert }\frac{\delta
+m}{\left\vert m_{\mathbf{N}}\right\vert }
+\]
+so we have\[
+p_{\text{large}}=m_{\mathbf{N}}v_{\mathbf{N}}\left(  1+\frac{\delta
+m}{\left\vert m_{\mathbf{N}}\right\vert }+\frac{\delta v}{\left\vert
+v_{\mathbf{N}}\right\vert }\right)
+\]
+The smallest value of $p$ is likewise\[
+p_{\text{small}}=m_{\mathbf{N}}v_{\mathbf{N}}\left(  1-\frac{\delta
+m}{\left\vert m_{\mathbf{N}}\right\vert }-\frac{\delta v}{\left\vert
+v_{\mathbf{N}}\right\vert }\right)
+\]
+In each case we have $m_{\mathbf{N}}v_{\mathbf{N}}$ and then either plus or
+minus the term $\frac{\delta m}{\left\vert m_{\mathbf{N}}\right\vert }+\frac{\delta v}{\left\vert v_{\mathbf{N}}\right\vert }$so we have, for our
+calculated value of $p$\[
+p_{\text{calculated}}=m_{\mathbf{N}}v_{\mathbf{N}}\left(  1\pm\left(
+\frac{\delta m}{\left\vert m_{\mathbf{N}}\right\vert }+\frac{\delta
+v}{\left\vert v_{\mathbf{N}}\right\vert }\right)  \right)
+\]
+which we must be able to write as a nominal value and an uncertainty in $p$\[
+p_{\text{calculated}}=p_{\mathbf{N}}\left(  1\pm\frac{\delta p}{\left\vert
+p_{\mathbf{N}}\right\vert }\right)
+\]
+Comparing the previous two equations we can see that we must have\[
+\frac{\delta p}{\left\vert p_{\mathbf{N}}\right\vert }=\left(  \frac{\delta
+m}{m_{\mathbf{N}}}+\frac{\delta v}{v_{\mathbf{N}}}\right)
+\]
+
+
+Then when we multiple measured quantities, we add fractional uncertainties.
+This is our algebraic rule for multiplication.
+
+Don't forget, that we need to report $\delta p,$ so to find $\delta p$ we
+take\[
+\delta p=\frac{\delta p}{\left\vert p_{\mathbf{N}}\right\vert }p_{\mathbf{N}}
+\]
+
+
+\subsubsection{Division}
+
+Let's start again with two measured values $x$ and $y$ with the form\[
+x=x_{\mathbf{N}}\left(  1\pm\frac{\delta x}{\left\vert x_{\mathbf{N}}\right\vert }\right)
+\]\[
+y=y_{\mathbf{N}}\left(  1\pm\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)
+\]
+We can find the quotient
+\[
+q=q_{\mathbf{N}}\pm\delta q
+\]
+as we did for multiplication\[
+q=\frac{x_{\mathbf{N}}\left(  1\pm\frac{\delta x}{\left\vert x_{\mathbf{N}}\right\vert }\right)  }{y_{\mathbf{N}}\left(  1\pm\frac{\delta y}{\left\vert
+y_{\mathbf{N}}\right\vert }\right)  }
+\]
+Again find the maximum quotient\[
+q_{\text{large}}=\frac{x_{\mathbf{N}}\left(  1+\frac{\delta x}{\left\vert
+x_{\mathbf{N}}\right\vert }\right)  }{y_{\mathbf{N}}\left(  1-\frac{\delta
+y}{\left\vert y_{\mathbf{N}}\right\vert }\right)  }
+\]
+and we will play a mathematical trick, we will multiple both top and bottom by
+$\left(  1+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)
+,$ since
+\[
+\frac{\left(  1+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)
+}{\left(  1+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)
+}=1
+\]
+this will not change our value for $q_{\text{large}}$\[
+q_{\text{large}}=\frac{x_{\mathbf{N}}\left(  1+\frac{\delta x}{\left\vert
+x_{\mathbf{N}}\right\vert }\right)  }{y_{\mathbf{N}}\left(  1-\frac{\delta
+y}{\left\vert y_{\mathbf{N}}\right\vert }\right)  }\frac{\left(
+1+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)  }{\left(
+1+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)  }
+\]
+The denominator is\[
+y_{\mathbf{N}}\left(  1-\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert
+}\right)  \left(  1+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert
+}\right)
+\]
+We can perform the multiplication to get\begin{align*}
+& y_{\mathbf{N}}\left(  1-\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert
+}+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }-\frac{\delta
+y}{\left\vert y_{\mathbf{N}}\right\vert }\frac{\delta y}{\left\vert
+y_{\mathbf{N}}\right\vert }\right) \\
+& =y_{\mathbf{N}}\left(  1-\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)
+\end{align*}
+and we can perform the multiplication in the numerator
+\[
+x_{\mathbf{N}}\left(  1+\frac{\delta x}{\left\vert x_{\mathbf{N}}\right\vert
+}+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }+\frac{\delta
+x}{\left\vert x_{\mathbf{N}}\right\vert }\frac{\delta y}{\left\vert
+y_{\mathbf{N}}\right\vert }\right)
+\]
+so\[
+q_{\text{large}}=\frac{x_{\mathbf{N}}\left(  1+\frac{\delta x}{\left\vert
+x_{\mathbf{N}}\right\vert }+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }+\frac{\delta x}{\left\vert x_{\mathbf{N}}\right\vert }\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)  }{y_{\mathbf{N}}\left(  1-\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert
+}\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)  }
+\]
+The term\[
+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\frac{\delta
+y}{\left\vert y_{\mathbf{N}}\right\vert }
+\]
+is very small compared to $1$ (if $\delta y/\left\vert y_{\mathbf{N}}\right\vert $ is a small number, as we assume, then $\delta y^{2}/\left\vert
+y_{\mathbf{N}}\right\vert ^{2}$ will be very tiny) so we will drop it from
+our calculations (we are calculating uncertainty, the fifth decimal place in
+the uncertainty is very uncertain!). We can do this as well with the term\[
+\frac{\delta x}{\left\vert x_{\mathbf{N}}\right\vert }\frac{\delta
+y}{\left\vert y_{\mathbf{N}}\right\vert }
+\]
+like we did with the multiplication case. Then\begin{align*}
+q_{\text{large}}  & =\frac{x_{\mathbf{N}}\left(  1+\frac{\delta x}{\left\vert
+x_{\mathbf{N}}\right\vert }+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)  }{y_{\mathbf{N}}\left(  1\right)  }\\
+& =\frac{x_{\mathbf{N}}}{y_{\mathbf{N}}}\left(  1+\frac{\delta x}{\left\vert
+x_{\mathbf{N}}\right\vert }+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)
+\end{align*}
+We could go through this again for $q_{\text{small}}$ and we would find
+\begin{align*}
+q_{\text{small}}  & =\frac{x_{\mathbf{N}}\left(  1-\left(  \frac{\delta
+x}{\left\vert x_{\mathbf{N}}\right\vert }+\frac{\delta y}{\left\vert
+y_{\mathbf{N}}\right\vert }\right)  \right)  }{y_{\mathbf{N}}\left(  1\right)
+}\\
+& =\frac{x_{\mathbf{N}}}{y_{\mathbf{N}}}\left(  1-\left(  \frac{\delta
+x}{\left\vert x_{\mathbf{N}}\right\vert }+\frac{\delta y}{\left\vert
+y_{\mathbf{N}}\right\vert }\right)  \right)
+\end{align*}
+
+
+We can then write\begin{align*}
+q_{\text{calculated}}  & =\frac{x_{\mathbf{N}}}{y_{\mathbf{N}}}\left(
+1\pm\left(  \frac{\delta x}{\left\vert x_{\mathbf{N}}\right\vert }+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }\right)  \right) \\
+& =q_{\mathbf{N}}\left(  1\pm\frac{\delta q}{\left\vert q\right\vert }\right)
+\end{align*}
+where
+\[
+q_{\mathbf{N}}=\frac{x_{\mathbf{N}}}{y_{\mathbf{N}}}
+\]
+and\[
+\frac{\delta q}{\left\vert q\right\vert }=\frac{\delta x}{\left\vert
+x_{\mathbf{N}}\right\vert }+\frac{\delta y}{\left\vert y_{\mathbf{N}}\right\vert }
+\]
+just like the formula for multiplication! The rule is when we divide measured
+quantities, we add fractional uncertainties
+
+\subsubsection{Addition}
+
+Let's take two measurements\[
+x_{measured}=x_{\mathbf{N}}\pm\delta x
+\]\[
+y_{measured}=y_{\mathbf{N}}\pm\delta y
+\]
+and add them to get the largest value of the sum, $z$\begin{align*}
+z_{\text{large}}  & =x_{measured}+y_{measured}\\
+& =x_{\mathbf{N}}+y_{\mathbf{N}}+\delta x+\delta y
+\end{align*}
+We can also find the smallest value for $z$\begin{align*}
+z_{\text{small}}  & =x_{measured}+y_{measured}\\
+& =x_{\mathbf{N}}+y_{\mathbf{N}}-\left(  \delta x+\delta y\right)
+\end{align*}
+so if we write this as $z_{\mathbf{N}}\pm\delta z$ we have\[
+z_{\mathbf{N}}\pm\delta z=x_{\mathbf{N}}+y_{\mathbf{N}}\pm\left(  \delta
+x+\delta y\right)
+\]
+and we can identify
+\begin{align*}
+z_{\mathbf{N}}  & =x_{\mathbf{N}}+y_{\mathbf{N}}\\
+\delta z  & =\left(  \delta x+\delta y\right)
+\end{align*}
+
+
+The rule is that when we add measurements we add their uncertainties.
+
+\subsubsection{Subtraction}
+
+Let's take two measurements\[
+x_{measured}=x_{\mathbf{N}}\pm\delta x
+\]\[
+y_{measured}=y_{\mathbf{N}}\pm\delta y
+\]
+and add them to get the largest value of the sum, $z$\begin{align*}
+z_{\text{large}}  & =x_{measured}-y_{measured}\\
+& =\left(  x_{\mathbf{N}}+\delta x\right)  -\left(  y_{\mathbf{N}}-\delta
+y\right)
+\end{align*}
+We can also find the smallest value for $z$\begin{align*}
+z_{\text{small}}  & =x_{measured}-y_{measured}\\
+& =\left(  x_{\mathbf{N}}-\delta x\right)  -\left(  y_{\mathbf{N}}+\delta
+y\right)
+\end{align*}
+so if we write this as $z_{\mathbf{N}}\pm\delta z$ we have\[
+z_{\mathbf{N}}\pm\delta z=x_{\mathbf{N}}-y_{\mathbf{N}}\pm\left(  \delta
+x+\delta y\right)
+\]
+and we can identify
+\begin{align*}
+z_{\mathbf{N}}  & =x_{\mathbf{N}}-y_{\mathbf{N}}\\
+\delta z  & =\left(  \delta x+\delta y\right)
+\end{align*}
+
+
+The rule is that when we subtract measurements, we add their uncertainties
+just as we found for addition.
+
+\subsubsection{Measured quantity times an exact number}
+
+Suppose we want the circumference of a circle. We measure the radius to be\[
+r_{measured}=r_{\mathbf{N}}\pm\delta r
+\]
+and we calculate
+\[
+C_{calculated}=2\pi r_{measured}
+\]
+how do we determine the uncertainty?
+
+There is not uncertainty in the $2$ nor in the $\pi.$ So we multiply\begin{align*}
+C_{calc}  & =2\pi\left(  r_{\mathbf{N}}\pm\delta r\right) \\
+& =2\pi r_{\mathbf{N}}\pm2\pi\delta r
+\end{align*}
+which gives
+\[
+C_{\mathbf{N}}\pm\delta C=2\pi r_{\mathbf{N}}\pm2\pi\delta r
+\]
+and we identify
+\[
+C_{\mathbf{N}}=2\pi r_{\mathbf{N}}
+\]
+and
+\[
+\delta C=2\pi\left\vert \delta r\right\vert
+\]
+
+
+In general, if we have
+\[
+q=Bx
+\]
+where $B$ is a constant, then we should expect\[
+\delta q=\left\vert B\right\vert \delta x
+\]
+
+
+\paragraph{Powers}
+
+For a power, we really are just multiplying\[
+y=x^{2}=x\times x
+\]
+so, taking the fractional uncertainty rule for multiplication,\begin{align*}
+\frac{\delta y}{\left\vert y\right\vert }  & =\frac{\delta x}{\left\vert
+x\right\vert }+\frac{\delta x}{\left\vert x\right\vert }\\
+& =2\frac{\delta x}{\left\vert x\right\vert }\end{align*}
+
+
+In general, if
+\[
+y=x^{n}
+\]
+then
+\[
+\frac{\delta y}{\left\vert y\right\vert }=n\frac{\delta x}{\left\vert
+x\right\vert }
+\]
+
