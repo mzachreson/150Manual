@@ -1,0 +1,37 @@
+\documentclass[twoside,11pt,ShortChapTitles]{BYUTextbook}
+
+\usepackage{soul}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+\usepackage{siunitx}
+\sisetup{round-mode = figures,
+  round-precision = 3, scientific-notation=true}
+  \usepackage{marginfix}
+
+\usepackage{mathtools}
+
+
+\setcounter{chapter}{0}
+
+
+\usepackage{standalone}
+
+\title{Physics 150 Lab Manual}
+\author{R. Todd Lines \and Matthew R. Zachreson}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\part{Lab Introductions}
+\include{Lab1_intro}
+\include{Lab2_intro}
+
+\part{Lab Assignments}
+%Start Counting Back at 1
+\setcounter{chapter}{0}
+\renewcommand{\chaptername}{Lab}
+
+\include{Lab1}
+\include{Lab2}
+
+\end{document}
