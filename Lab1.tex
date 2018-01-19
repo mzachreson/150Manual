@@ -6,40 +6,11 @@
 \sisetup{round-mode = figures,
   round-precision = 3, scientific-notation=true}
   \usepackage{marginfix}
-  
+
 \usepackage{mathtools}
-%\usepackage{amsfonts}
-%\usepackage{amsmath}
-%\usepackage{graphicx}
-%\usepackage{epstopdf}
-%\usepackage{amssymb}
-%\usepackage{hyperref}
-%\usepackage{textcomp}
-%\usepackage{listings}
-%\usepackage{units}
-%\usepackage{color}
 
-%\definecolor{dkgreen}{rgb}{0,0.6,0}
-%\definecolor{gray}{rgb}{0.5,0.5,0.5}
-%\definecolor{mauve}{rgb}{0.58,0,0.82}
-
-%\lstset{frame=tb,
-%  language=Python,
-%  aboveskip=3mm,
-%  belowskip=3mm,
-%  showstringspaces=false,
-%  columns=flexible,
-%  basicstyle={\small\ttfamily},
-%  numbers=none,
-%  numberstyle=\tiny\color{gray},
-%  keywordstyle=\color{blue},
-%  commentstyle=\color{dkgreen},
-%  stringstyle=\color{mauve},
-%  breaklines=true,
-%  breakatwhitespace=true,
-%  tabsize=3, upquote=true}
 \renewcommand{\chaptername}{Lab}
-\lstMakeShortInline[columns=fixed]|
+
 \setcounter{chapter}{0}
 
 \begin{document}
@@ -59,9 +30,9 @@ At most professional labs and major engineering companies your lab notebook is
 considered the property of the company or organization and will stand as a legal document. It is the proof that
 you did the experiment that you say you did, and that you got the results you
 say you got. It has to be readable and understandable to someone who did not
-participate in the lab with you. This is a pretty tall order. 
+participate in the lab with you. This is a pretty tall order.
 
-{\em You should write  in your lab notebook as you go}, not leave it until the end of the day\sidenote{A lab notebook is not a lab report.  You just nned to take well organized notes on what you did and what you found.}.  It will be much easier, and will take you less time as you go.   To help you plan your entries, here are the criteria I will use to grade your lab book:
+{\em You should write  in your lab notebook as you go}, not leave it until the end of the day\sidenote{A lab notebook is not a lab report.  You just need to take well organized notes on what you did and what you found.}.  It will be much easier, and will take you less time as you go.   To help you plan your entries, here are the criteria I will use to grade your lab book:
 
 \begin{itemize}
 \item Describing the goal for the work
@@ -150,7 +121,7 @@ calculated value.
 notebook (not just your result, but tell yourself in your notebook \emph{how
 you got your result}).
 
-\item Report the following results: 1) Density of the cylinder, 2) Predicted
+\item Report the following results:\sidenote{Notice that the uncertainty in the calculated volume isn't in this list.  You don't have to find it yet.} 1) Density of the cylinder, 2) Predicted
 Mass of the cylinder, 3) Actual Mass of the cylinder. Comment on the accuracy
 and precision of your measurement.
 
@@ -162,15 +133,18 @@ or on the internet
 \subsection{Part 2 Combining Uncertainty: Volume of the room}
 
 \begin{itemize}
-\item Determine the volume of this room, including uncertainties. Describe
+\item Determine the volume of this room, {\em including uncertainties}. Describe
 your method fully in your lab notebook, including which measuring instruments
-you used and why, and the uncertainty in each of your measurements.
+you used and why, and the uncertainty\sidenote{Even though the uncertainty equations are given below, you should try to show where they came from in your lab notebook.  If you need help doing this, be sure to ask for it.} in each of your measurements.
 
-\item The relative uncertainty in the volume is
+\item The {\em absolute} uncertainty in the volume is
 \[
-\frac{\delta V}{V}=\frac{\delta L}{L}+\frac{\delta H}{H}+\frac{\delta W}{W}
+\delta V=\left(\frac{\delta L}{L}+\frac{\delta H}{H}+\frac{\delta W}{W}\right)V
 \]
-from Taylor's equation 2.28 or from our algebraic method multiplication rule.
+from our algebraic method multiplication rule or
+\[
+\left(\frac{\delta V}{V}\right)^2=\left(\frac{\delta L}{L}\right)^2+\left(\frac{\delta H}{H}\right)^2+\left(\frac{\delta W}{W}\right)^2
+\]
 
 \item Compare your answers with those from your neighboring research
 institutions at the other tables. Are your answers the same to within the
@@ -184,6 +158,8 @@ values of your uncertainty? If not, explain why they aren't.
 in our measuring devices \emph{before} you start performing an experiment.
 From what you have experienced so far today, why do you think this is so?
 \end{itemize}
+
+
 
 \subsection{Part 4 Combining Uncertainty: Determine the Volume of a Stack of
 Paper}
@@ -211,17 +187,13 @@ explain what this means in your lab notebook.
 \end{itemize}
 
 
-
 \end{document}
 
-% END OF DOCUMENT =======================================================
-
-
-%SECTION ON LAB NOTEBOOKS =================================================
 
 
 
-%END SECTION ON LAB NOTEBOOKS ==============================================
+
+
 
 
 

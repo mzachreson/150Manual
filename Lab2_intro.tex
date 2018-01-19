@@ -20,6 +20,30 @@
 
 \chapter[Statistical Representation of Data]{Communicating Results I: Statistical Representation of Data}
 
+\section*{Python You Should Know for This Chapter}
+\begin{itemize}
+\item What these terms mean, and how to work with them: {\em List, variable, index, function}
+\item How to run a Python program
+\item How to import the \code{numpy} library
+\end{itemize}
+Recommended reading: Introduction to Scientific Computing in Python, by Nelson and Zachreson; All of Chapters 1 and 3, as well as Sections 4.1 and 4.2
+\section*{Questions that you should be able to answer by the end of this chapter.}
+\begin{enumerate}
+\item What are the mean and standard deviation of these numbers: 3,3,2,4,6
+
+\item You take 10 measurements and find that they have a mean of 5.3 seconds and a standard deviation of 1.1 seconds.  What is the uncertainty of your measurement?
+
+\item Using the figure below, how many students earned an A? How many earned less than a C?
+\begin{center}
+\includegraphics[scale=0.5]{Lab2_figs/hist_few.eps}
+\end{center}
+
+\item Given the histogram above, what is the modal grade (the mode of the grades)?
+
+\item  Here are a few grades from another class: B,D,A,A,C.  What is the median grade?
+\end{enumerate}
+\hrulefill
+
 So far we have talked about repeating experiments, but we have been too
 pressed for time to actually do that. We should take the time to see how to
 report data from multiple results. Let's also tie the idea of multiple
@@ -62,7 +86,7 @@ the sum by the number of values.%
 \bar{x} &=&\frac{x_{1}+x_{2}+x_{3}+\cdots x_{N}}{N} \\
 &=&\frac{1}{N}\sum_{i=1}^{N}x_{i}
 \end{eqnarray*}%
-The last equation uses sigma notation. It is read as \textquotedblleft one
+The last equation uses sigma notation. It is read as `` one
 over $N$ times the sum of $x_{i}$ for $i=1$ to $N.$ It is a short-hand
 notation for the line above. We will use this notation because it makes
 writing our equations much easier. But that means it is very important that
@@ -81,7 +105,7 @@ x_{8}&=1.2\pm 0.01\text{cm}%
 \end{aligned}%
 \]%
 We have labeled each $x$ with a number. That is what the $x_{i}$ means. The
-\textquotedblleft $i$\textquotedblright\ is an index. It stands for any
+`` $i$'' is an index. It stands for any
 number from $1$ to $N.$ Our sigma notation says we add up all these
 positions, and divide by $N=8$ since there are eight positions%
 \begin{eqnarray*}
@@ -111,8 +135,8 @@ would be
 \Delta x_{i}=\bar{x}-x_{i}
 \]%
 for each throw. In this equation we are using the Greek $\Delta $ to show a
-difference, and a bar over the $x$ to mean \textquotedblleft the average
-value of the $x$-position.\textquotedblright\ Then $\Delta x_{i}$ is how far
+difference, and a bar over the $x$ to mean `` the average
+value of the $x$-position.'' Then $\Delta x_{i}$ is how far
 off the $i^{th}$ trow from the mean. Sometimes we are off to the right, and
 sometimes to the left. If we add up all the $\Delta x_{i}$ values and
 average them, they will average to nearly zero most of the time. We can see
@@ -140,10 +164,10 @@ off we are on average, it does not tend to zero, and has the same units as $%
 x_{i}$ so it can be an estimate of our uncertainty. It is about how far most
 of the points are off from the mean. But $\sqrt{\overline{\Delta x_{i}^{2}}}$
 is a little hard to write, so we usually give this quantity the symbol $%
-\sigma $, which is a Greek letter $s$ and is pronounced \textquotedblleft
-sigma.\textquotedblright\ We also give $\sigma $ a name. We call it the
+\sigma $, which is a Greek letter $s$ and is pronounced ``
+sigma.'' We also give $\sigma $ a name. We call it the
 \emph{standard deviation} because it is about how much the average point
-\textquotedblleft deviates\textquotedblright\ from the mean position. So for
+`` deviates'' from the mean position. So for
 our $x$-position we can write
 \[
 \sigma _{x}=\sqrt{\sum_{i=1}^{N}\frac{\left( x_{i}-\bar{x}\right) ^{2}}{N}}
@@ -158,14 +182,18 @@ Then we have $\left( x_{1}-\bar{x}\right) ^{2},$ $\left( x_{2}-\bar{x}%
 \sum_{i=1}^{N}\frac{\left( x_{i}-\bar{x}\right) ^{2}}{N}.$ Then we take the
 square root.
 
-In lab today, I\ will ask you to do this by hand once. That should be enough
-to convince you that you never want to do it by hand again! Normally we will
-use a computer to do this. I suggest you use one of our spreadsheet
-programs, or python to do these calculations, and not your calculator.
+Here's an example\sidenote{Hopefully this example is enough to convince you that you never want to do this by hand! Normally we will
+use a computer to do this. You may have already done it in an spreadsheet program like Excel, but I suggest you use Python to do these calculations, and not your calculator.} using the dart data from before:
+
+\begin{eqnarray*}
+\sigma _{x}&=&\left(\left[ \left(0.5-1.00\right)^2+\left(0.5-0.50\right)^2+\left(0.5+0.75\right)^2+\left(0.5+2.25\right)^2\right.\right.\\
+&&\left.\left.+\left(0.5-3.00\right)^2+\left(0.5+0.80\right)^2+\left(0.5-2.10\right)^2+\left(0.5-1.2\right)^2\right]\text{cm}^2/8\right)^{\tfrac{1}{2}}\\
+&=&1.6\,\text{cm}
+\end{eqnarray*}%
 
 \section{Histograms}
 
-Suppose I\ plot the results of many, many dart throws. The way I want to
+Suppose I plot the results of many, many dart throws. The way I want to
 plot this is something you have seen from grading for many years. I want the
 horizontal axis to show the $x$-position of the dart throws. I want the $y$%
 -axis to show the number of darts that landed at a particular $x$-position.
@@ -227,7 +255,7 @@ measurements? That is, do we become more sure about where we are pointing if
 we throw more darts and include these many darts' locations in our average?
 I think you will see from our previous reasoning that this is the case. The
 more trials of an experiment that we take, the closer our mean value is to
-the \textquotedblleft truth\textquotedblright\ value we are measuring. Since
+the `` truth'' value we are measuring. Since
 this is the case, shouldn't the uncertainty go down as we perform more
 trials?
 
@@ -284,14 +312,14 @@ take our eight data points that we started with earlier, we know the mean , $%
 0.5\text{cm},$ and we can find the standard deviation of the mean to be $0.6%
 \text{cm}.$ We plot this by making a dot or diamond or some larger point
 indicator. Then we make a line through the point with little ends that show
-the size of the uncertainty. The result looks like this.
+the size of the uncertainty. The result looks like this:\sidenote{ Most plotting programs will allow you to
+add error bars to your graphs.}
 
 \begin{center}
 \includegraphics[scale=0.6]{Lab2_figs/error_bars.pdf}
 \end{center}
 
- Excel, and most plotting programs will allow you to
-add error bars to your graphs.
+
 
 Of course, we could have $y$
 -direction error bars as well. These would be vertical, and there is no reason the $y$%

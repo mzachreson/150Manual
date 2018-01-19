@@ -6,40 +6,10 @@
 \sisetup{round-mode = figures,
   round-precision = 3, scientific-notation=true}
   \usepackage{marginfix}
-  
+
 \usepackage{mathtools}
-%\usepackage{amsfonts}
-%\usepackage{amsmath}
-%\usepackage{graphicx}
-%\usepackage{epstopdf}
-%\usepackage{amssymb}
-%\usepackage{hyperref}
-%\usepackage{textcomp}
-%\usepackage{listings}
-%\usepackage{units}
-%\usepackage{color}
 
-%\definecolor{dkgreen}{rgb}{0,0.6,0}
-%\definecolor{gray}{rgb}{0.5,0.5,0.5}
-%\definecolor{mauve}{rgb}{0.58,0,0.82}
 
-%\lstset{frame=tb,
-%  language=Python,
-%  aboveskip=3mm,
-%  belowskip=3mm,
-%  showstringspaces=false,
-%  columns=flexible,
-%  basicstyle={\small\ttfamily},
-%  numbers=none,
-%  numberstyle=\tiny\color{gray},
-%  keywordstyle=\color{blue},
-%  commentstyle=\color{dkgreen},
-%  stringstyle=\color{mauve},
-%  breaklines=true,
-%  breakatwhitespace=true,
-%  tabsize=3, upquote=true}
-
-\lstMakeShortInline[columns=fixed]|
 \setcounter{chapter}{0}
 
 \begin{document}
@@ -242,7 +212,7 @@ Since a good measurement has an error that is a small percentage of the total
 measurement, we can easily identify which measurement is better by calculating
 the percentage of the total value represented by the uncertainty and observing
 how small it is. We call this the ``relative
-uncertainty." 
+uncertainty."
 
 The relative uncertainty will be small for a good measurement and large for
 a bad one. In this case we can easily see that the Rochester measurement is
@@ -279,7 +249,7 @@ until we fix it. We can improve our uncertainty estimate by taking many
 measurements and using the average as our value. But if we aim at the wrong
 place, no matter how many darts we throw, the accuracy error won't get better.
 
-Of course what we want is both accuracy and precision in our measurements. 
+Of course what we want is both accuracy and precision in our measurements.
 
 \section{Combining uncertainty}
 
@@ -296,7 +266,7 @@ but wait, what do we do with the uncertainties? If the initial measurements of
 the lengths are uncertain, then the area made from them must be more
 uncertain. We need a way to combine our uncertainties for the area.  There are three generally accepted ways to calculate how much our measurement error affects our results\sidenote{Each of these methods fall under the more general term of {\em error propagation} or {\em propagation of error}.}  They are the algebraic method (which is used only in fields where you aren't expected to know calculus) standard or Gaussian error propagation (the gold standard), and Monte Carlo (used when systems are too complex to do standard error propagation).  This chapter will discuss the standard and algebraic methods.
 
-I've also included the ``High/Low Method'' as an example.  You {\bf should never use it in a professional setting}, but it is very good at illustrating how errors in measurement affect your results. 
+I've also included the ``High/Low Method'' as an example.  You {\bf should never use it in a professional setting}, but it is very good at illustrating how errors in measurement affect your results.
 
 \subsection{The High/Low Method}
 
@@ -306,7 +276,7 @@ $+0.2\,\text{cm} $ on both measurements, then we would have the biggest area we 
 get from our measurements. In some way it would be the most off we could get.
 Let's call this $A_{\max}.$ We would find it to be
 \begin{align*}
-A_{\max} &=\left(  28.4\,\text{cm} +0.02\,\text{cm} \right)  \times\left(  22.2\,\text{cm} +0.02\,\text{cm} \right)\\ 
+A_{\max} &=\left(  28.4\,\text{cm} +0.02\,\text{cm} \right)  \times\left(  22.2\,\text{cm} +0.02\,\text{cm} \right)\\
 &=28.6\,\text{cm} \times22.4\,\text{cm}\\
 &=\allowbreak640.\,\allowbreak64\,\text{cm} ^{2}
 \end{align*}
@@ -440,13 +410,13 @@ Here is that same statement written as a partial derivative:
  \frac{\partial f}{\partial x} &= \frac{\partial}{\partial x}\left[5x^2y^3\right] & = 5y^3\frac{\partial}{\partial x}x^2 &= 10y^3x \\
   \frac{\partial f}{\partial y} &= \frac{\partial}{\partial y}\left[5x^2y^3\right] & = 5x^2\frac{\partial}{\partial y}y^3 &= 15x^2y^2
  \end{aligned}\]
- 
+
  \subsubsection{Calculating Error}
  Here is the traditional\sidenote{It's traditional because it is a very good way to {\em remember} how to calculate the error, not because it is necessarily the best way to {\em learn}.} way of writing out the formula that will calculate the error in any function $f(x,y,z,.....)$:
  \[
  \left(\delta f(x,y,z,....)\right)^2 = \left(\frac{\partial f}{\partial x}\right)^2(\delta x)^2+ \left(\frac{\partial f}{\partial y}\right)^2(\delta y)^2++ \left(\frac{\partial f}{\partial z}\right)^2(\delta z)^2+...
  \]
- 
+
  For any equation, you create the necessary error equation with these steps (an example will follow):
  \begin{enumerate}
  \item Clearly identify which terms in your calculation have an error or uncertainty.
@@ -456,7 +426,7 @@ Here is that same statement written as a partial derivative:
  \item Repeat for all the measurements for which you have an uncertainty, then add all of the error terms squared
  \item Take the square root of the total
  \end{enumerate}
- 
+
  Here's standard error propagation applied to the book area example from before. As a reminder, we measured a  book and found that it has a height of $h=28.4\pm0.2\,\text{cm} $ and a width of $22.2 \pm0.02\,\text{cm}$.  To find the area, we use:
 \[A = hw= (28.4\,\text{cm})(22.2\,\text{cm}) = 630.48\,\text{cm}^2\]
 
@@ -479,7 +449,7 @@ Now we can calculate the total uncertainty:
 
 Therefore, the proper way to quote our calculated area is
 \[ A = 630.5 \pm 4.5\,\text{cm}\]
- 
+
 \section{Judging success of an experiment}
 
 Now we know how to describe the uncertainty in a measurement and we can even
