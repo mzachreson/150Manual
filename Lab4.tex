@@ -1,36 +1,19 @@
-\documentclass{book}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{epstopdf}
-\usepackage{amssymb}
-\usepackage{hyperref}
-\usepackage{textcomp}
-\usepackage{listings}
-\usepackage{units}
-\usepackage{color}
+\documentclass[twoside,11pt,ShortChapTitles]{BYUTextbook}
 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+\usepackage{soul}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+\usepackage{siunitx}
+\sisetup{round-mode = figures,
+  round-precision = 3, scientific-notation=true}
+  \usepackage{marginfix}
 
-\lstset{frame=tb,
-  language=Python,
-  aboveskip=3mm,
-  belowskip=3mm,
-  showstringspaces=false,
-  columns=flexible,
-  basicstyle={\small\ttfamily},
-  numbers=none,
-  numberstyle=\tiny\color{gray},
-  keywordstyle=\color{blue},
-  commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
-  breaklines=true,
-  breakatwhitespace=true,
-  tabsize=3, upquote=true}
+\usepackage{mathtools}
 
-\lstMakeShortInline[columns=fixed]|
+
+
+
+
+
 \setcounter{chapter}{3}
 
 \begin{document}
@@ -89,35 +72,35 @@ For reference, here is a figure with the best fit line for to the data.  The red
 \end{center}
 
 Here's an example of a Python function that takes in x and y values and returns the slope and intercept of the best fit line, with their errors.  It would be very go practice to read through it and see if you can figure out what each line does.
-\begin{lstlisting}[language=Python]
+\begin{Verbatim}
 def linearLeastSquares(x,y):
     #Import numpy
     import numpy as np
     #Get the number of data points
     N=len(x)
-    
+
     #Make sure x and y are numpy arrays to make array math easy
     x=np.asarray(x)
     y=np.asarray(y)
-    
-    #Calculate the average values needed to find the slope and intercept    
+
+    #Calculate the average values needed to find the slope and intercept
     xbar=np.mean(x) #Average Value of the xdata
     ybar=np.mean(y) #Average value of the y data
     xbar2=np.mean(x**2) #Average value of the xdata squared
     xybar=np.mean(x*y) #Average value of xdata*ydata
-    
 
-    
-    #Use the linear least squares formula to calculate 
+
+
+    #Use the linear least squares formula to calculate
     #the slope and the intercept of the best fit line
     slope=(xybar-xbar*ybar)/(xbar2-xbar**2)
     intercept=ybar-slope*xbar
-    
+
     #This section estimates the error in the fit =========================
-    
+
     #Calculate the variance in the fit
     #Calculate the stuff inside the sum first to make the code easier to read
-    sigmaYinsideSum = np.square(y-intercept-slope*x) 
+    sigmaYinsideSum = np.square(y-intercept-slope*x)
 
     #Get the uncertaintiy in the measurements (variance)
     sigmaY=np.sqrt(np.sum(sigmaYinsideSum)/(N-2))
@@ -125,16 +108,16 @@ def linearLeastSquares(x,y):
     #Now calculate the error in the slope and intercept
     sigmaSlope = sigmaY/np.sqrt(N*(xbar2-xbar**2))
     sigmaIntercept = sigmaY*np.sqrt(xbar2/(N*(xbar2-xbar**2)))
-    
+
     #End of error estimating section =====================================
-    
-    #Now return the slope and intercept, with their error as a list of lists    
-    
+
+    #Now return the slope and intercept, with their error as a list of lists
+
     return [
            [slope,sigmaSlope],
-           [intercept,sigmaIntercept]       
+           [intercept,sigmaIntercept]
            ]
-\end{lstlisting}
+\end{Verbatim}
 
 
 
@@ -152,7 +135,7 @@ where $g$ is the acceleration due to gravity.  The plot of $y$ vs $t$ is looks l
 That is definitely not linear, but we can tweak it so that it is.  Here are the steps:
 \begin{enumerate}
 \item First isolate the dependent variable, or the thing you measured.  In this case, that would be our distance fallen, $y$.
-\item See if it looks like a line.  Here's how you can tell. In $y=mx+b$ we have three parts that determine $y$: $m$ and $b$ are constant, $x$ is something that changes.  In our example, we change $t$ as we advance frame by frame, that's called our independent variable.  
+\item See if it looks like a line.  Here's how you can tell. In $y=mx+b$ we have three parts that determine $y$: $m$ and $b$ are constant, $x$ is something that changes.  In our example, we change $t$ as we advance frame by frame, that's called our independent variable.
 \end{enumerate}
 So, let's check our equation. Do we have a constant that multiplies some function of our independent variable.  In this case, we have $\frac{1}{2}a$ as a constant, and $t^2$ is a function of our independent variable; therefore, we make our slope $m=\frac{1}{2}a$ and our x values $x=t^2$. Since we don't have anything that we are adding, $b=0$.  To add an extra check to our work, here is a plot of $y$ vs $t^2$:
 \begin{center}
@@ -405,7 +388,7 @@ including the appropriate error bars and a best fit line (See second part). Atta
 Record what you do and highlight any deviations from your planned procedure.
 Record your data or your data file name and location. Show your analysis and
 give your results. Draw conclusions. We will check these conclusions in the
-third part. But state whether you believe that $T\varpropto\sqrt{m}$
+third part. But state whether you believe that $T\propto\sqrt{m}$
 \end{enumerate}
 
 \subsection{Second Part: fitting a line}
@@ -413,41 +396,41 @@ In order to fit a line to your data, you'll need to teach Python how to do a lin
 \begin{enumerate}
 \item Linearize your equation.  Remember, linear least squares fitting only works on lines.
 \item Type out the example program given in this lab's intro, and save it in the folder where you have been saving your other programs from lab.  Make sure that you match the indentation from the example.  Python uses indentation to tell where functions end.  Here's a quick example:
-\begin{lstlisting}[language=Python]
+\begin{Verbatim}
 def line(x,m,b):
     return m*x+b
-\end{lstlisting}
+\end{Verbatim}
 
-Notice the difference in indentation between the two lines. The "def" command tells Python that you want to create your own function.  In this case, the function is called |line| and takes inputs |x|,|m|, and |b|.  The return command tells Python what you want to get out of your function.  You could define a function this way and get the same result:
+Notice the difference in indentation between the two lines. The "def" command tells Python that you want to create your own function.  In this case, the function is called \code{line} and takes inputs \code{x},\code{m}, and \code{b}.  The return command tells Python what you want to get out of your function.  You could define a function this way and get the same result:
 
-\begin{lstlisting}[language=Python]
+\begin{Verbatim}
 def line(x,m,b):
     y=m*x+b
     return y
-\end{lstlisting}
+\end{Verbatim}
 
 But you will get an error if you enter this:
-\begin{lstlisting}[language=Python]
+\begin{Verbatim}
 def line(x,m,b):
     y=m*x+b
 return y
-\end{lstlisting}
+\end{Verbatim}
 Indentation is very important in Python.  When you define a function, everything that is indented below it is counted as part of that function.  Not indenting the return statement tells Python that you've ended your function, and it won't know what to return.
 Here's one more example:
-\begin{lstlisting}[language=Python]
+\begin{Verbatim}
 def line(x,m,b):
     y=m*x+b
     return y
 
 y=line(5,2,1)
-\end{lstlisting}
-The previous piece of code tells Python what we want our function to be.  Then,  the very last line (notice that it is not indented) tells Python that we want to use our function, and that we want |x=5|, |m=2|, and |b=1|.  Python will perform the operation and save the number 11 (5*2+1) into the variable |y|.  Python will also treat any variables inside of functions as separate from the ones outside, meaning the |y| in our function is independent of the |y| in the last line. Once you define a function, you can use it over and over again in your program.
+\end{Verbatim}
+The previous piece of code tells Python what we want our function to be.  Then,  the very last line (notice that it is not indented) tells Python that we want to use our function, and that we want \code{x=5}, \code{m=2}, and \code{b=1}.  Python will perform the operation and save the number 11 (5*2+1) into the variable \code{y}.  Python will also treat any variables inside of functions as separate from the ones outside, meaning the \code{y} in our function is independent of the \code{y} in the last line. Once you define a function, you can use it over and over again in your program.
 
 \item Test your function.  Put these lines of code {\em after} your function: (you only have to choose one function call, but make sure your print statements match.)
-\begin{lstlisting}[language=Python]
+\begin{Verbatim}
 xdata=[1,2,3,4,5,6]
 ydata=[1,2,3,4,5,6]
-#There are three different ways to call your function, pick one.  
+#There are three different ways to call your function, pick one.
 #What gets loaded where is described after the function call
 
 fit_params = linearLeastSquares(xdata,ydata)
@@ -468,14 +451,14 @@ slope, intercept = linearLeastSquares(xdata,ydata)
 #These print statements were built using the variable names from the third function call
 print('Slope: {}+/-{}'.format(slope,slopeErr))
 print('Intercept: {}+/{}'.format(intercept,interceptErr))
-\end{lstlisting}
+\end{Verbatim}
 If your program is working properly, it will print:
-\begin{lstlisting}[language=Python]
+\begin{Verbatim}
 Slope: 1.0+/-0.0
 Intercept: 0.0+/0.0
-\end{lstlisting}
+\end{Verbatim}
 
-\item If you are confident that your equipment is properly zeroed, you can get a more accurate fit by forcing your intercept to be zero.  Inside the same file that you typed up your |linearLeastSquares| function, create a second function called |linearLeastSquaresNoIntercept| that will do a least squares fit to a line without an intercept and return the slope and its error.
+\item If you are confident that your equipment is properly zeroed, you can get a more accurate fit by forcing your intercept to be zero.  Inside the same file that you typed up your \code{linearLeastSquares} function, create a second function called \code{linearLeastSquaresNoIntercept} that will do a least squares fit to a line without an intercept and return the slope and its error.
 
 The equations for fitting a no intercept least squares line are:
 \[m=\frac{\left<xy\right>}{\left<x^2\right>}\]
@@ -487,24 +470,24 @@ You should get a slope of 1 and an intercept of 0 if your function is working co
 
 Now start building a script to fit this week's data.
 \begin{enumerate}
-\item Open up a new Python script and save it in the same directory as your least squares file.  Put this command at the top of your file: (For this example, the file with the least squares fitting functions in it was saved with the name |linearLeastSquaresFits.py|, change the name to match accordingly.)
-\begin{lstlisting}[language=Python]
+\item Open up a new Python script and save it in the same directory as your least squares file.  Put this command at the top of your file: (For this example, the file with the least squares fitting functions in it was saved with the name \code{linearLeastSquaresFits.py}, change the name to match accordingly.)
+\begin{Verbatim}
 from linearLeastSquaresFits import *
-\end{lstlisting}
-This line tells Python to load all of the functions in |linearLeastSquaresFits.py|.  You can now use your least squares fitting functions in this program.
+\end{Verbatim}
+This line tells Python to load all of the functions in \code{linearLeastSquaresFits.py}.  You can now use your least squares fitting functions in this program.
 
-\item Load your data into your program.Doing math with data sets is easier in Python if you use the numpy library.  It can be very helpful to save our data like this: (It would be good to give your data more descriptive names than |x_data| and |y_data|, and add comments.)
-\begin{lstlisting}[language=Python]
+\item Load your data into your program.Doing math with data sets is easier in Python if you use the numpy library.  It can be very helpful to save our data like this: (It would be good to give your data more descriptive names than \code{x_data} and \code{y_data}, and add comments.)
+\begin{Verbatim}
 import numpy as np
 x_data=np.asarray([1,2,3,4,5])
 y_data=np.asarray([2.1, 3.9, 5.8, 8.4, 11])
-\end{lstlisting}
-As an experiment, tell Python to |print(x_data*y\_data)| and see what happens.    Numpy arrays can only have numbers in them, and so multiplying two numpy arrays will multiply each item in the list individually.  Since Python lists can have anything in them (numbers, words, other lists) Python doesn't have a built in way to do math on entire lists without doing quite a bit more work.  That's mostly because it doesn't make any sense to say |5*'hello'|.
+\end{Verbatim}
+As an experiment, tell Python to \code{print(x_data*y\_data)} and see what happens.    Numpy arrays can only have numbers in them, and so multiplying two numpy arrays will multiply each item in the list individually.  Since Python lists can have anything in them (numbers, words, other lists) Python doesn't have a built in way to do math on entire lists without doing quite a bit more work.  That's mostly because it doesn't make any sense to say \code{5*'hello'}.
 
 \item Do a least squares fit to your data using your fitting functions.
 
 \item Check your fit equation by using your fitted slope and intercept to
-calculate a new set of |y| values (|yfit=m*x+b|) and then plotting them. (Data points with errorbars, as well as the fit line) The |matplotlib.pyplot| command for plotting a regular line is |plot(x_points,y_points)|.
+calculate a new set of \code{y} values (\code{yfit=m*x+b}) and then plotting them. (Data points with errorbars, as well as the fit line) The \code{matplotlib.pyplot} command for plotting a regular line is \code{plot(x_points,y_points)}.
 
 
 \end{enumerate}

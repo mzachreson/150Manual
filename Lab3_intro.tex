@@ -15,9 +15,119 @@
 \setcounter{chapter}{2}
 
 \begin{document}
-
 \chapter{Measurement and Uncertainty II}
+\section*{Python You Should Know for This Chapter}
+\begin{itemize}
+\item What these terms mean, and how to work with them: {\em string, int, float}
+\item How to import the \code{matplotlib} plotting library and its basic plotting commands.
+\end{itemize}
+Recommended reading: Introduction to Scientific Computing in Python, by Nelson and Zachreson; All of chapter 7, Basic Plotting
+\section*{Questions that you should be able to answer by the end of this chapter.}
+\begin{enumerate}
+\item What is $\frac{\partial}{\partial x} \frac{x^2}{yz}$
+\item What is $\frac{\partial}{\partial t} \frac{5}{t^2}$
+\item You want to find out how many moles ($N$) of an ideal gas are in a container.  You can measure its volume, $V$, temperature, $T$, and pressure, $P$.  You also know that those quantities are related to the number of moles through the ideal gas law:
+\[PV=NRT\]
+where $R$ is the universal gas constant and has negligible uncertainty.  Write out a symbolic equation to calculate the number of moles of gas in the container and a separate equation for the uncertainty in your calculation.
+\end{enumerate}
+\hrulefill
 
+
+By now, you should be far enough in your calculus class to know what a derivative is.  If not, the most important thing you need to know is that it's a mathematical method to calculate the slope of any function at any point on that function.
+
+\section{The Power Rule}
+The most commonly used derivative rule\sidenote{Derivatives actually have several different rules that you can memorize: chain rule, quotient rule, trig rules, and many more that you will learn (or should have learned) in your calculus class. Every single one of them comes from taking the limit of $\frac{y_2-y_1}{x_2-x_1}$ as the distance between $x_1$ and $x_2$ goes to zero.} is the power rule\sidenote{Most of what we do in this class will use the power rule, just ask for help if you run into something odd like an $\arctan$ function.}:
+
+\[
+\frac{d}{dx}\left(  ax^{n}\right)  =anx^{n-1}
+\]
+that is, if I have a constant, $a,$ times $x^{n}$ the slope of this curve is
+the constant, $a,$ times the power, $n,$ times $x$ to the $n-1$ power.
+
+Let's take an example. What is the slope of the function $y=5x^{3}?$
+
+\[
+\frac{d}{dx}\left(  5x^{3}\right)  =\left(  5\right)  \left(  3\right)
+x^{3-1}=15x^{2}
+\]
+
+
+How about finding the slope of $y=7x^{2}-2x+1$\sidenote{Notice how you can handle each additive term separately.}
+
+\[
+\frac{d}{dx}\left(  7x^{2}-2x+1\right)  =\left(  7\right)  \left(  2\right)
+x^{1}-\left(  2\right)  (1)x^{0}+0
+\]
+
+The last term illustrates that the slope of a constant is zero. That makes
+sense. Constants don't change. So the change in $y$ just due to the last term
+$(1)$ should be zero. We also remember $x^{0}=1.$ So we are left with
+\[
+\frac{d}{dx}\left(  7x^{2}-2x+1\right)  =14x-2
+\]
+
+
+There are many functions where you can use the power rule, but where it is not readily apparent.  For example, when $x$ is in the denominator\sidenote{Remember that $1/x^n = x^{-n}$}:
+\[ \frac{d}{dx}\frac{5}{x^3} = \frac{d}{dx} 5x^{-3} = (-3)*5x^{-4} = -\frac{15}{x^4}\]
+or square roots:
+
+\[
+\frac{d}{dx}\left(  \sqrt{x}\right)  =\frac{d}{dx}\left(x^{\frac{1}{2}}\right)  =\frac{1}{2}x^{-\frac{1}{2}} = \frac{1}{2}\frac{1}{\sqrt{x}}
+\]
+
+
+\section{How Derivatives Relate to Uncertainty}
+In Lab 1, we discussed Standard Error Propagation\sidenote{If you used the algebraic error propagation methods, you should go back and read the Standard Error Propagation section of that Lab.} and how you needed to find partial derivatives\sidenote{Remember: a partial derivative is just a regular derivative where you treat anything except the variable that you are taking the derivative with respect to as a constant.  For example, \[\frac{\partial}{\partial x} y^3x^2 = 2y^3x\]
+and \[\frac{\partial}{\partial y} y^3x^2 = 3y^2x^2\]
+We use $\partial$ instead of $d$ to denote a partial derivative.} in order to calculate the uncertainty in our calculated values.
+
+Here's an example of why.  Suppose you shoot a ball up into the air and want to predict how high it will be $0.15$ seconds after you shoot it.  Kinematics predicts that the ball's $y$ postion vs. time graph should look like this
+\begin{center}
+\includegraphics{Lab3_figs/Parab_onepoint.eps}
+\end{center}
+and that the ball should be at a height of 0.5 meters after 0.15 seconds.  However, with the stopwatch we use, the best measurement we can get is $0.15 \pm 0.05$ seconds.  Adding the time uncertainty to the graph
+\begin{center}
+\includegraphics{Lab3_figs/Parab_threepoints.eps}
+\end{center}
+shows that our predicted height could be anywhere from 0.4 m to 0.6 m.
+
+Notice that the line segment between our two dotted lines is roughly linear, and we could approximate it with this equation\sidenote{Note: $\left.\frac{\partial y}{\partial t}\right|_{t=t_0}$ is the mathematical way to write: the derivative of our function $y$ with respect to $t$ evaluated at $t_0$.}:
+\[y = \left.\frac{\partial y}{\partial t}\right|_{t=t_0}t+b = m_{t_0}t+b\]
+where $\left.\frac{\partial y}{\partial t}\right|_{t=t_0} = m_{t_0}$ and represents the slope of our line at $t_0=0.15$ seconds (where it is crossed by the solid black line).
+
+With a little bit of algebra, we can use this equation to estimate how far away the value at our high point ($y_h$, where $t_h=0.2$ seconds) would be from our calculated point, $y_h$:
+
+\begin{tabular}{rcc}
+$y_h =$& $m_{t_0}t_h$ &$+b$ \\
+$=$& $m_{t_0}\left(t_0+\delta t\right) $&$ + b$\\
+$=$& $m_{t_0}\delta t$ & $m_{t_0}t_0 + b$\\
+$=$& $\delta y$ & $+ y_0$
+\end{tabular}
+
+\noindent This equation shows us that our uncertainty in $y$ is our slope at our mean value in $t$ ($m_{t_0}$), multiplied by our uncertainty in time, $\delta t$.
+
+Using $\delta y = m_{t_0}\delta t$ is roughly equivalent to using the high/low method from Lab 1. Using a high/low method assumes that any time between 0.1 and 0.2 seconds is equally likely.
+
+But in Lab 2, you learned about normal (also called Gaussian) distributions (see Fig. \ref{Lab2_figs/normal_68.eps}
+\marginfig{Lab2_figs/normal_68.eps}{A normal distribution. The region within one standard deviation of the mean is highlighted.}
+and saw that if a measured time is $0.15 \pm 0.05$ seconds, you are more likely to measure a time of 0.16 seconds than you are to measure a time of 0.2 seconds.
+
+The rules for standard error propagation\sidenote{Standard error propagation also assumes that your measurements are independent, e.g. how you measure time with a stop watch does not affect how you measured distance with a meter stick.  It is generally a safe assumption to make.} use a statistical principle called the {\em central limit theorem} to take this variance in probability into account.  This derivation is beyond the scope of this lab manual, but the result is the equation from Lab 1:
+ \[
+ \left(\delta f(x,y,z,....)\right)^2 = \left(\frac{\partial f}{\partial x}\right)^2(\delta x)^2+ \left(\frac{\partial f}{\partial y}\right)^2(\delta y)^2++ \left(\frac{\partial f}{\partial z}\right)^2(\delta z)^2+...
+ \]
+Which you will often see written in summation notation:
+\[
+\delta f=\sqrt{\sum_{i=1}^{N}\left(  \frac{\partial f}{\partial x_{i}}\right)
+^{2}\delta x_{i}^{2}}
+\]
+
+
+
+
+\end{document}
+
+%==================Old Material, archived ===============================================
 I\ hope that by now you have been taught what a derivative is in your Math 112
 class. But if not, we will learn what it is today. For our purposes, a
 derivative is a slope of a line. You should recognize the equation of a
@@ -73,14 +183,8 @@ y=\frac{1}{2}\frac{\text{m}}{\text{s}}t+1\text{m}
 is an equation giving the $y$ position of an object as a function of time.
 Note that it is a straight line on a $y$ vs. $t$ plot.
 \begin{center}
-\fbox{\includegraphics[
-natheight=1.868000in,
-natwidth=3.499900in,
-height=1.868in,
-width=3.4999in
-]
-{Lab3_figs/LineGraph.eps}
-}
+\hspace*{-1.5cm}
+\includegraphics{Lab3_figs/LineGraph.eps}
 \end{center}
 The slope of the line is
 \[
@@ -110,13 +214,7 @@ short time later. But right now the speed is, say, $0.5
 .$
 
 \begin{center}
-\includegraphics[
-natheight=2.290000in,
-natwidth=3.392700in,
-height=2.3307in,
-width=3.4385in
-]
-{Lab3_Figs/Parab_twopoints.eps}
+\includegraphics{Lab3_Figs/Parab_twopoints.eps}
 \end{center}
 Really, in defining an instantaneous slope we have assumed that the slope near
 our point on the curve is essentially a straight line if $\Delta t$ is small enough.
@@ -175,14 +273,7 @@ This is shown in the next figure with a black line. Solving the equation for
 $y$ is equivalent to drawing a line up to the curve, then from our spot on the
 curve over to the $y$-axis to find the position.
 \begin{center}
-\fbox{\includegraphics[
-natheight=2.229500in,
-natwidth=3.343400in,
-height=2.2295in,
-width=3.3434in
-]
-{Lab3_figs/Parab_onepoint.eps}
-}
+\includegraphics{Lab3_figs/Parab_onepoint.eps}
 \end{center}
 
 
@@ -210,13 +301,7 @@ from the intersections to the $y$-axis. This gives us a $y_{\min}$ and
 $y_{\max}.$ Our actual height could be anywhere in between these. This is a
 way to view our uncertainty in $y.$
 \begin{center}
-\includegraphics[
-natheight=2.734500in,
-natwidth=4.115600in,
-height=2.7769in,
-width=4.1658in
-]
-{Lab3_Figs/Parab_threepoints.eps}
+\includegraphics{Lab3_Figs/Parab_threepoints.eps}
 \end{center}
 
 
@@ -328,55 +413,6 @@ your instructor for help if it is not clear).
 
 \section{How do we find the slope?}
 
-But now we have an equation in terms of slope written as $dy/dx$ or $dy/dz$,
-but how would we ever find these slops? Your calculus class has or will teach
-you this. So we will just give you some quick formulas that will work for most
-equations, then you can ask your instructor if you have something odd like an
-$\arctan$ function.
-
-For polynomials like,
-\[
-f\left(  x\right)  =ax^{2}+bx+c
-\]
-each term follows the rule
-\[
-\frac{d}{dx}\left(  ax^{n}\right)  =anx^{n-1}
-\]
-that is, if I have a constant, $a,$ times $x^{n}$ the slope of this curve is
-the constant, $a,$ times the power, $n,$ times $x$ to the $n-1$ power.
-
-Let's take an example. What is the slope of the function $y=5x^{3}?$
-
-\[
-\frac{d}{dx}\left(  5x^{3}\right)  =\left(  5\right)  \left(  3\right)
-x^{3-1}=15x^{2}
-\]
-
-
-How about finding the slope of $y=7x^{2}-2x+1$
-
-\[
-\frac{d}{dx}\left(  7x^{2}-2x+1\right)  =\left(  7\right)  \left(  2\right)
-x^{1}-\left(  2\right)  (1)x^{0}+0
-\]
-The last term illustrates that the slope of a constant is zero. That makes
-sense. Constants don't change. So the change in $y$ just due to the last term
-$(1)$ should be zero. We also remember $x^{0}=1.$ So we are left with
-\[
-\frac{d}{dx}\left(  7x^{2}-2x+1\right)  =14x-2
-\]
-
-
-This one rule will take care of most of our functions for now. Let's try one
-more, say $y=x^{\frac{1}{2}}$
-\[
-\frac{d}{dx}\left(  x^{\frac{1}{2}}\right)  =\frac{1}{2}x^{-\frac{1}{2}}
-\]
-This could be written as
-\[
-\frac{d}{dx}\left(  \sqrt{x}\right)  =\frac{1}{2}\frac{1}{\sqrt{x}}
-\]
-So we see we can handle square roots with this rule.
 
 \section{Tie to statistics}
 
