@@ -20,11 +20,53 @@
 
 
 \begin{document}
-\maketitle
+\frontmatter
+ \begin{adjustwidth}{}{-1.5in}
+  \thispagestyle{empty}
+ \centering
+ \vspace*{0.5in}
+ \large
+ {\huge PH 150}
+ \vskip0.1truein
+ {\huge LAB}
+ \vskip0.1truein
+ {\huge MANUAL}
+ \vskip.4truein
+
+ R. Todd Lines and Matthew R. Zachreson
+ \bigskip
+
+ Department of Physics
+
+ \bigskip
+ Brigham Young University--Idaho
+
+ \vfill
+
+
+ {\footnotesize $\copyright$ 2018 R. Todd Lines and Matthew R. Zachreson
+               Brigham Young University--Idaho}
+
+ \vskip.5truein
+ {\footnotesize \emph{Last Revised: \today}}
+ \normalsize
+
+ \end{adjustwidth}
+%\cleardoublepage
+%Spot to include a preface or aknowledgements
+%\input{chapters/acknowledgements}
+%\input{chapters/preface}
+
+
+ \cleardoublepage \phantomsection
+ \addcontentsline{toc}{chapter}{Table of Contents}
 \tableofcontents
+\mainmatter
 \part{Lab Introductions}
 \include{Lab1_intro}
 \include{Lab2_intro}
+\include{Lab3_intro}
+\include{Lab4_intro}
 
 \part{Lab Assignments}
 %Start Counting Back at 1
@@ -33,5 +75,7 @@
 
 \include{Lab1}
 \include{Lab2}
+\include{Lab3}
+\include{Lab4}
 
 \end{document}
