@@ -1,12 +1,19 @@
-\documentclass{book}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{epstopdf}
-\usepackage{amssymb}
-\usepackage{hyperref}
-\usepackage{listings}
-\usepackage{units}
+\documentclass[twoside,11pt,ShortChapTitles]{BYUTextbook}
+
+\usepackage{soul}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+\usepackage{siunitx}
+\sisetup{round-mode = figures,
+  round-precision = 3, scientific-notation=true}
+  \usepackage{marginfix}
+
+\usepackage{mathtools}
+
+
+
+
+
+
 \setcounter{chapter}{5}
 
 \begin{document}
@@ -18,13 +25,13 @@ Standing waves result from making waves that reflect back on themselves, or by
 making waves on both ends of a string. When we were children we formed a type
 of standing wave with jump ropes.
 \begin{center}
-\includegraphics[natheight=3.749800in,natwidth=5.000400in,height=0.9262in,width=1.2306in]{Lab6_figs/JumpRope1stHar.eps}
+\includegraphics{Lab6_figs/JumpRope1stHar.eps}
 \end{center}
 This standing wave had a part that went up and down in the middle and two
 parts that did not move much on each end (called nodes). But if you had a
 bored kid, you might have seen a standing wave that looks like this.%
 \begin{center}
-\includegraphics[natheight=3.749800in,natwidth=5.000400in,height=0.9446in,width=1.256in]{Lab6_figs/JumpRope2ndHar.eps}
+\includegraphics{Lab6_figs/JumpRope2ndHar.eps}
 \end{center}
 This is not so good for jumping, but makes an interesting picture. The part in
 the middle that does not seem to be moving is called a node. Really there are
@@ -39,7 +46,7 @@ In the setup on your table, ring stands are holding strings, and there is an
 oscillator on one end that has a frequency control box. The other end has a
 pulley and a hanging mass to provide tension on the string.%
 \begin{center}
-\includegraphics[natheight=1.907800in,natwidth=2.949000in,height=1.5451in,width=2.3753in]{Lab6_figs/StandingWaveonString.png}
+\includegraphics[width=0.8\textwidth]{Lab6_figs/StandingWaveonString.png}
 \end{center}
 
 Experimentally we find that not all frequencies will make standing waves. So

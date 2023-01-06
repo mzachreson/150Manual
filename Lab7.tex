@@ -1,13 +1,16 @@
-\documentclass{book}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{epstopdf}
-\usepackage{amssymb}
-\usepackage{hyperref}
-\usepackage{textcomp}
+\documentclass[twoside,11pt,ShortChapTitles]{BYUTextbook}
+
+\usepackage{soul}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+\usepackage{siunitx}
+\sisetup{round-mode = figures,
+  round-precision = 3, scientific-notation=true}
+  \usepackage{marginfix}
+
+\usepackage{mathtools}
+
 \usepackage{listings}
-\usepackage{units}
+
 \usepackage{color}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -74,7 +77,7 @@ position of the ball by starting with the initial position of the ball,
 $x_{o},$ and adding to this initial position how far it has gone in $t$
 seconds.
 \begin{center}
-\includegraphics[natheight=1.308300in,natwidth=3.587800in,height=0.9943in,width=2.6911in]{Lab7_figs/kinematicsAnnotated.png} \end{center}
+\includegraphics[width=0.8\textwidth]{Lab7_figs/kinematicsAnnotated.png} \end{center}
 If the ball were going at constant speed, the additional distance would be
 just $v_{o}t$. This comes from speed being distance over time.
 \begin{align*}
@@ -90,7 +93,7 @@ time graph for our ball will be a parabola.
 
  
 \begin{center}
-\fbox{\includegraphics[natheight=1.265200in,natwidth=3.375400in,height=1.2652in,width=3.3754in]{Lab7_figs/PvTSimple.png}}
+\includegraphics[width=0.8\textwidth]{Lab7_figs/PvTSimple.png}
 \end{center}
 The second and third equations from our kinematic set give the speed of the
 object. The second is the speed as a function of time. Since for this first
@@ -109,7 +112,7 @@ v=at+v_{o}
 on a velocity vs. time graph, this has the form of a straight line. So the
 velocity vs. time graph will be a straight line. 
 \begin{center}
-\fbox{\includegraphics[natheight=1.167500in,natwidth=3.125400in,height=1.1675in,width=3.1254in]{Lab7_figs/VvTSimple.png}}
+\includegraphics[width=0.8\textwidth]{Lab7_figs/VvTSimple.png}
 \end{center}
 
 
@@ -150,7 +153,7 @@ acknowledge that the speed of the ball is really changing. Otherwise the
 ball's position vs. time graph will go in a straight line as shown in the next
 figure 
 \begin{center}
-\fbox{\includegraphics[natheight=1.375000in,natwidth=3.666800in,height=1.375in,width=3.6668in]{Lab7_figs/PvTOnePoint.png}}
+\includegraphics[width=0.8\textwidth]{Lab7_figs/PvTOnePoint.png}
 \end{center}
 The dotted line is what we get when we don't change the velocity. The solid
 line is what we should have. But we don't yet know $v\left(  t_{1}\right)  $,
@@ -334,7 +337,7 @@ and so forth. Here is what we get after many iterations:
 
 
 \begin{center}
-\fbox{\includegraphics[natheight=7.383800in,natwidth=10.552400in,height=1.708in,width=2.4362in]{Lab7_figs/MLQ2XV07.png} }
+\includegraphics[width=0.8\textwidth]{Lab7_figs/MLQ2XV07.png}
 
 \end{center}
 the solid line is the result of the kinematic equation (the correct result).
@@ -344,7 +347,7 @@ have a better solution.
 
  
 \begin{center}
-\fbox{\includegraphics[natheight=7.258400in,natwidth=10.510100in,height=1.6994in,width=2.4543in]{Lab7_figs/MLQ2XV08.png} }
+\includegraphics[width=0.8\textwidth]{Lab7_figs/MLQ2XV08.png}
 \end{center}
 Notice that there are many more small plus signs now. We had to do more
 calculations to get the improvement. This is the cost of the smaller $\Delta
@@ -352,7 +355,7 @@ t.$ If we let $\Delta t$ be very small the curves lie right on top of each other
 
  
 \begin{center}
-\fbox{\includegraphics[natheight=7.258400in,natwidth=10.510100in,height=1.5169in,width=2.1897in]{Lab7_figs/MLQ2XV09.png}}
+\includegraphics[width=0.8\textwidth]{Lab7_figs/MLQ2XV09.png}
 \end{center}
 Euler came up with this method back in the 1700's and we still call this
 method of numerically finding results \emph{Euler's method} (pronounced
@@ -362,7 +365,7 @@ Let's take a moment and see what went wrong when $\Delta t$ was not small enough
 
  
 \begin{center}
-\includegraphics[natheight=1.289400in,natwidth=3.437600in,height=1.2894in,width=3.4376in]{Lab7_figs/PvTOnePoint.png}
+\includegraphics[width=0.8\textwidth]{Lab7_figs/PvTOnePoint.png}
 \end{center}
 In the figure, we can see a solid curve (green if you are seeing this in
 color). Let's suppose the solid curve represents the actual position of the
@@ -391,8 +394,10 @@ v_{2}  & =v_{1}-g\Delta t
 \end{align*}
 or, given our initial conditions, \begin{align*}
 x_{2}  & =60 \operatorname{m} +\allowbreak10.\,\allowbreak38\frac{ \operatorname{m} }{ \operatorname{s} }\times2 \operatorname{s} =\allowbreak80.\,\allowbreak76 \operatorname{m} \\
-v_{2}  & =\allowbreak10.\,\allowbreak38\frac{ \operatorname{m} }{ \operatorname{s} }-9.81\frac{ \operatorname{m} }{ \operatorname{s} ^{2}}\times2 \operatorname{s} =\allowbreak-9.\,\allowbreak24\frac{ \operatorname{m} }{ \operatorname{s} } \end{align*} \begin{center}
-\fbox{\includegraphics[natheight=1.252200in,natwidth=3.339900in,height=1.2522in,width=3.3399in]{Lab7_figs/PvTTwoPoints.png} }
+v_{2}  & =\allowbreak10.\,\allowbreak38\frac{ \operatorname{m} }{ \operatorname{s} }-9.81\frac{ \operatorname{m} }{ \operatorname{s} ^{2}}\times2 \operatorname{s} =\allowbreak-9.\,\allowbreak24\frac{ \operatorname{m} }{ \operatorname{s} } \end{align*} 
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Lab7_figs/PvTTwoPoints.png}
 \end{center}
 
 
@@ -561,8 +566,10 @@ unwarranted.}. To make matters even worse, we take our \textquotedblleft
 constant\textquotedblright\ rate of change from the endpoint of the time
 interval, and the rate of change at the endpoint is by no means representative
 of the entire interval. Here is an example. In the figure below, the solid
-curve is the function we are trying to find. We will start at $t=10 \operatorname{s} .$ \begin{center}
-\fbox{\includegraphics[natheight=2.085900in,natwidth=3.128900in,height=2.0859in,width=3.1289in]{Lab7_figs/ParabTan.png} }
+curve is the function we are trying to find. We will start at $t=10 \operatorname{s} .$ 
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Lab7_figs/ParabTan.png}
 \end{center}
 I want to use a time step of $\Delta t=5 \operatorname{s} $ (way to large). We see that our Euler's method starts with our initial time
 at $t=10 \operatorname{s} $ and makes a step
@@ -579,7 +586,7 @@ would logically be better to use this average value while progressing a given
 variable over time (for example, using the average velocity over a time
 interval while evaluating the position).
 \begin{center}
-\includegraphics[natheight=2.159400in,natwidth=3.239600in,height=2.1594in,width=3.2396in]{Lab7_figs/Parab2Points.png}
+\includegraphics[width=0.8\textwidth]{Lab7_figs/Parab2Points.png}
 \end{center}
 This is quite an improvement as you can see.
 
