@@ -40,7 +40,7 @@ affect the period of oscillation. If so, explain how you will control for that
 input. If not, give justification for why you can ignore that input.
 
 \item Build a mathematical model beginning with the suggestion you got from
-reading Hook's work (above).
+reading Hook's work (lab introduction).
 
 \item Determine how you will measure the period of oscillation. Remember that
 you want to minimize the amount of uncertainty in your measurement. Techniques
@@ -88,6 +88,7 @@ In order to fit a line to your data, you'll need to teach Python how to do a lin
 \begin{Verbatim}
 def line(x,m,b):
     return m*x+b
+
 \end{Verbatim}
 
 Notice the difference in indentation between the two lines. The "def" command tells Python that you want to create your own function.  In this case, the function is called \code{line} and takes inputs \code{x}\sidenote{This function assumes that \code{x} is a numpy array.  If it is a regular list, the multiplication won't work the way you expect it to.},\code{m}, and \code{b}.  The return command tells Python what you want to get out of your function.  You could define a function this way and get the same result:
@@ -96,6 +97,7 @@ Notice the difference in indentation between the two lines. The "def" command te
 def line(x,m,b):
     y=m*x+b
     return y
+
 \end{Verbatim}
 
 But you will get an error if you enter this:
@@ -103,6 +105,7 @@ But you will get an error if you enter this:
 def line(x,m,b):
     y=m*x+b
 return y
+
 \end{Verbatim}
 Indentation is very important in Python.  When you define a function, everything that is indented below it is counted as part of that function.  Not indenting the return statement tells Python that you've ended your function, and it won't know what to return.
 Here's one more example:
@@ -112,6 +115,7 @@ def line(x,m,b):
     return y
 
 y=line(5,2,1)
+
 \end{Verbatim}
 The previous piece of code tells Python what we want our function to be.  Then,  the very last line (notice that it is not indented) tells Python that we want to use our function, and that we want \code{x=5}, \code{m=2}, and \code{b=1}.  Python will perform the operation and save the number 11 (the result of 5*2+1) into the variable \code{y}.  Python will also treat any variables inside of functions as separate from the ones outside, meaning the \code{y} in our function is independent of the \code{y} in the last line. Once you define a function, you can use it over and over again in your program.
 
@@ -133,6 +137,7 @@ If your program is working properly, it will print:
 \begin{Verbatim}
 Slope: 1.0
 Intercept: 0.0
+
 \end{Verbatim}
 
 \item It is also very important to be able to calculate error.  Modify the \code{linear_least_squares} function so that it also returns the error in the slope ($\sigma_m$) and intercept ($\sigma_b$).  As a reminder, these equations calculate the error:
@@ -149,6 +154,7 @@ Now start building a script to fit this week's data.
 \item Open up a new Python script and save it in the same directory as your least squares file.  Put this command at the top of your file: (For this example, the file with the least squares fitting functions in it was saved with the name \code{linear_least_squares.py}, change the name to match accordingly.)
 \begin{Verbatim}
 import linear_least_squares
+
 \end{Verbatim}
 This line tells Python to load all of the functions in \code{linear_least_squares.py}.  You can now use your least squares fitting function in this program.
 
@@ -157,6 +163,7 @@ This line tells Python to load all of the functions in \code{linear_least_square
 import numpy as np
 x_data=np.asarray([1,2,3,4,5])
 y_data=np.asarray([2.1, 3.9, 5.8, 8.4, 11])
+
 \end{Verbatim}
 As an experiment, tell Python to \code{print(x_data*y_data)} and see what happens.    Numpy arrays can only have numbers in them, and so multiplying two numpy arrays will multiply each item in the list individually.  Since Python lists can have anything in them (numbers, words, other lists) Python doesn't have a built in way to do math on entire lists without doing quite a bit more work.  That's mostly because it doesn't make any sense to say \code{5*'hello'}.
 

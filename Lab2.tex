@@ -51,6 +51,13 @@ walking time of the first fve walkers\emph{by hand} (show all your work).
 \item Using a computer: (see instructions below)
 \begin{itemize}
 \item Calculate the mean walking time, median walking time, and (if appropriate) the modal walking time of the class.
+\item Calculate the standard deviation of the walking times using both
+\begin{itemize}
+\item the built in \code{numpy} function
+\item the standard deviation formula coded into python: \[
+\sigma _{x}=\sqrt{\sum_{i=1}^{N}\frac{\left( x_{i}-\bar{x}\right) ^{2}}{N}}
+\]
+\end{itemize}
 \item Make a histogram of the walking times.
 \end{itemize}
 \end{enumerate}
@@ -78,6 +85,7 @@ Let's look at the next set of lines:
 data = [34, 38, 33, 38, 38, 36, 35, 47,36, 32, 40, 40,
        45, 36, 43, 38, 48, 40, 40, 38, 43, 40, 39, 36, 46,
        34, 37, 33, 32, 34 ]
+
 \end{Verbatim}
 They load our walking data into what is called a list.  It's a way to save our data under a different name for easier access.
 The \code{print(data)} command tells the computer to print out what we've saved in data.
@@ -87,6 +95,7 @@ Save your file with the extension \code{.py}. (Example: \code{myFile.py})  That 
 If you are using Canopy or Spyder, you can run your script by clicking play or hitting f5.  If you aren't using one of those, open up your command line on Windows or the terminal on Linux or Mac.  Navigate the where you saved your file (ask the instructor for help if you need it) and type in the command:
 \begin{Verbatim}
 Python 'myFile.py'
+
 \end{Verbatim}
 but insert your file name. That tells your computer to run the Python script.  You should see your data printed out on the screen.
 
@@ -99,6 +108,7 @@ Add these lines to your script:
 import numpy as np
 dataMean=np.sum(data)/len(data)
 print('Mean:  {0:.2f}'.format(dataMean))
+
 \end{Verbatim}
 
 The first line loads a library called \code{numpy}.  Python keeps a lot of functions in separate libraries.  Loading one is sort of like grabbing a book with the right set of instructions in it.  Now, all of the \code{numpy} functions are stored in the letters \code{np}.
@@ -114,12 +124,13 @@ dataMean=np.sum(data)/len(data)
 print('Mean:  {0:.2f}'.format(dataMean))
 dataMeanNp=np.mean(data)
 print('Numpy Mean:  {0:.2f}'.format(dataMeanNp))
+
 \end{Verbatim}
 
 
 Your assignment for this part is to {\em add} these parts to your program:
 \begin{enumerate}
-\item a part where the program calculates and prints the standard deviation using the formula in the reading.
+\item a part where the program calculates and prints the standard deviation using the formula in the reading. Hint: if you've been following the lab, \code{data-dataMeanNp} will subtract the mean from every data point stored in \code{data}.
 \item a part that uses numpy to find the median and standard deviation of our walking data.  The numpy function that finds the median is \code{median} and the numpy function that finds the standard deviation is \code{std}.
 \end{enumerate}
 Once you find the median and standard deviation, tell your script to print the median with no decimal places and to print the standard deviation to three decimal places.
@@ -144,6 +155,7 @@ print('Mean:  {0:.2f}'.format(dataMean))
 dataMeanNp=np.mean(data)
 #Print the mean calculated from numpy's function.
 print('Numpy Mean:  {0:.2f}'.format(dataMeanNp))
+
 \end{Verbatim}
 
 \subsubsection{Making a histogram}
@@ -158,6 +170,7 @@ plt.xlabel('My x axis Label')
 plt.ylabel('My y axis label')
 plt.title('My Title')
 plt.savefig('myPlot.pdf')
+
 \end{Verbatim}
 
 This script will make a histogram with 20 bins and save it to the file \code{myPlot.pdf}.  In your program you should:
