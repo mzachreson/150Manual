@@ -33,15 +33,15 @@
   breakatwhitespace=true,
   tabsize=3, upquote=true}
 
-\lstMakeShortInline[columns=fixed]|
+
 \setcounter{chapter}{6}
 
 \begin{document}
 
-
+\mainmatter
 
 \chapter[Numerical modeling I]{Numerical modeling of Projectile motion}
-\setcounter{page}{1}
+%\setcounter{page}{1}
 \section*{Python You Should Know for This Chapter}
 \begin{itemize}
 \item How to construct a \code{for} loop.
@@ -66,7 +66,7 @@ simple cases, we might be able to do this by hand, but predicting by hand
 where all the planets will be on July 4, 2200 might get tedious without a computer.
 
 As physics students, it is good to know how to approach solving problems on a
-computer.\footnote{Most calculators qualify as computers now, since they are
+computer.\sidenote{Most calculators qualify as computers now, since they are
 usually programmable. But we are talking about going beyond the built in
 functions of calculators or even spreadsheet functions on computers.}
 
@@ -178,7 +178,7 @@ t (s)& a (m/s$^2$) & v (m/s) & x (m)\\
 
 
 Euler's method works under this same principle (starting/ending new sets of kinematic equations), but it uses
-an idea from calculus\footnote{Not to worry if you are concurrently taking
+an idea from calculus\sidenote{Not to worry if you are concurrently taking
 calculus. We will use very little calculus in this reading, so little that you
 probably won't notice it.} that we can take an infinitesimally small amount of
 time for our experiment. We will call this very small amount of time a
@@ -189,7 +189,7 @@ but our position equation will change a little bit. If $\Delta t$ is small, $\De
 \[
 x_{f}=x_i+v_it+\frac{1}{2}at^2 \approx x_{i}+v_{i}\Delta t 
 \]
-since $\frac{1}{2}a\Delta t^2 \approx 0$\footnote{If acceleration is large enough that $\Delta t^2$ doesn't make this term almost zero, you need to pick a smaller $\Delta t$}.  In the limit as $\Delta t\rightarrow0$ our
+since $\frac{1}{2}a\Delta t^2 \approx 0$\sidenote{If acceleration is large enough that $\Delta t^2$ doesn't make this term almost zero, you need to pick a smaller $\Delta t$}.  In the limit as $\Delta t\rightarrow0$ our
 equation will be exact.
 
 Euler's method lets us calculate motion even when acceleration changes by following these basic steps:
@@ -244,7 +244,7 @@ x_{n+1}  & =x_{n}+v_{n}\Delta t\\
 v_{n+1}  & =v_{n}+a_{n}\Delta t
 \end{align*}
 The only difference is that now our acceleration is not $-g,$ but
-$a=-g+\frac{D\rho Av^{2}}{2m}.$ So instead of\footnote{The $x_{n+1}$ and $x_{n}$ is a standard notation to mean the next $x$ we find ($x_{n+1}$) compared to our current $x$ ($x_n$, the $x$ for right now). There are other algorithms that involve more points that might reference the previous ($x_{n-1}$) point we calculated, for example.}.
+$a=-g+\frac{D\rho Av^{2}}{2m}.$ So instead of\sidenote{The $x_{n+1}$ and $x_{n}$ is a standard notation to mean the next $x$ we find ($x_{n+1}$) compared to our current $x$ ($x_n$, the $x$ for right now). There are other algorithms that involve more points that might reference the previous ($x_{n-1}$) point we calculated, for example.}.
 \begin{align*}
 x_{n+1}  & =x_{n}+v_{n}\Delta t\\
 v_{n+1}  & =v_{n}-g\Delta t
@@ -355,7 +355,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 \end{lstlisting}
 
-Everything inside the triple quotes |"""| counts as one long comment.  If you ever need to add comments that will take more than one line, you can start and end it with |"""|.  It's a great way to leave yourself notes about what each program does.
+Everything inside the triple quotes \lstinline[columns=fixed]!"""! counts as one long comment.  If you ever need to add comments that will take more than one line, you can start and end it with \lstinline[columns=fixed]!"""!.  It's a great way to leave yourself notes about what each program does.
 Below the introductory comment, I import Numpy and Matplotlib since I know that I'll be doing number crunching and plotting later on.
 
 This next part sets up all of our constants and inputs.  It's a good idea to put it at the beginning of the program so that they are easy to change.
@@ -371,7 +371,7 @@ t_max = 7.0 #Final time
 
 \end{lstlisting}
 
-The part with |x0| and |v0| is where I set the starting position and velocity.  |delta_t| is how far forward in time we will go in each calculation.  Remember, Euler's method works by assuming that acceleration is roughly constant over short time intervals.  |delta_t| sets that time interval.
+The part with \lstinline[columns=fixed]!x0! and \lstinline[columns=fixed]!v0! is where I set the starting position and velocity.  \lstinline[columns=fixed]!delta_t! is how far forward in time we will go in each calculation.  Remember, Euler's method works by assuming that acceleration is roughly constant over short time intervals.  \lstinline[columns=fixed]!delta_t! sets that time interval.
 
 Once we know our initial values, we need to tell the computer how many calculations to do.  Here's the piece of code that does that:
 
@@ -383,11 +383,11 @@ N=(t_max-t0)/delta_t
 N=int(N)
 \end{lstlisting}
 
-The above code calculates the number of timesteps needed, then saves it in the variable |N|. 
+The above code calculates the number of timesteps needed, then saves it in the variable \lstinline[columns=fixed]!N!. 
 
 Python keeps two types of numbers: ``Floats" - numbers with decimal points and ``Integers" - whole numbers. For example: 2.0 is a float, 2 is an integer.  Even though they have the same value, Python sees them as different things.
 You can only get an item from a list using an integer.
-|myList[2]| works, but |myList[2.0]| won't.  The command |N=int(N)| takes whatever number |N| is and converts it to an integer.  The |int| command truncates instead of rounding, so |int(2.9)| becomes |2|, not |3|.
+\lstinline[columns=fixed]!myList[2]! works, but \lstinline[columns=fixed]!myList[2.0]! won't.  The command \lstinline[columns=fixed]!N=int(N)! takes whatever number \lstinline[columns=fixed]!N! is and converts it to an integer.  The \lstinline[columns=fixed]!int! command truncates instead of rounding, so \lstinline[columns=fixed]!int(2.9)! becomes \lstinline[columns=fixed]!2!, not \lstinline[columns=fixed]!3!.
 
 \begin{lstlisting}
 #Make lists to hold our positions, velocities, and times
@@ -396,9 +396,9 @@ v=[v0]
 t=[t0]
 
 \end{lstlisting}
-Notice that all three of these are in square brackets, but there aren't any on on the variables I set above (look back to where I set |x0|).  
+Notice that all three of these are in square brackets, but there aren't any on on the variables I set above (look back to where I set \lstinline[columns=fixed]!x0!).  
 Putting square brackets around something tells Python that it is a list.  Since we?re going to be adding more x,v, and t values, we need to warn Python that these are going to be lists.
-Having the square brackets is essential on these. Whereas, |x0| is just a single value and will always be a single value, so it didn?t need square brackets.
+Having the square brackets is essential on these. Whereas, \lstinline[columns=fixed]!x0! is just a single value and will always be a single value, so it didn?t need square brackets.
 
 This next section of code is what we call a loop:
 \begin{lstlisting}
@@ -431,7 +431,7 @@ for <Thing that Changes>:
 Not part of the loop
 \end{lstlisting}
 
-Let's start by looking at the |Thing that Changes|.   As an example, here is a shopping list: bananas, apples, bread, milk.  If I wrote this program:
+Let's start by looking at the \lstinline[columns=fixed]!Thing that Changes!.   As an example, here is a shopping list: bananas, apples, bread, milk.  If I wrote this program:
 \begin{lstlisting}
 shopping_list = ['bananas','apples','bread','milk']
 for food in shopping_list:
@@ -439,9 +439,9 @@ for food in shopping_list:
 
 print(shopping_list)
 \end{lstlisting}
-When I run this program, I first load my shopping list.  The |for food in shopping_list| tells Python to look at each thing in my list one by one, and call it |food|.  Therefore, this program would first print bananas, then when it sees that |print(shopping_list)| isn't indented, it knows to go back to the |for| line, but changes food to the next thing on the list: apples.  So, after printing bananas, then apples, it would print bread, then milk.  Since the list ends at milk, the computer would then know to continue on and print the whole shopping list at once. (Thanks to the |print(shopping_list)| command)
+When I run this program, I first load my shopping list.  The \lstinline[columns=fixed]!for food in shopping_list! tells Python to look at each thing in my list one by one, and call it \lstinline[columns=fixed]!food!.  Therefore, this program would first print bananas, then when it sees that \lstinline[columns=fixed]!print(shopping_list)! isn't indented, it knows to go back to the \lstinline[columns=fixed]!for! line, but changes food to the next thing on the list: apples.  So, after printing bananas, then apples, it would print bread, then milk.  Since the list ends at milk, the computer would then know to continue on and print the whole shopping list at once. (Thanks to the \lstinline[columns=fixed]!print(shopping_list)! command)
 
-Now let's look at our |for| statement: |i in range(N)|.  The |range(N)| command makes a list of integers from zero to |N-1|.  If |N| was five, |range(N)| would be |[0,1,2,3,4]|.  Therefore, the first time we go through the for loop |i=0|, the second time |i=1|, and so on until we reach |N-1|.
+Now let's look at our \lstinline[columns=fixed]!for! statement: \lstinline[columns=fixed]!i in range(N)!.  The \lstinline[columns=fixed]!range(N)! command makes a list of integers from zero to \lstinline[columns=fixed]!N-1!.  If \lstinline[columns=fixed]!N! was five, \lstinline[columns=fixed]!range(N)! would be |[0,1,2,3,4]|.  Therefore, the first time we go through the for loop \lstinline[columns=fixed]!i=0!, the second time \lstinline[columns=fixed]!i=1!, and so on until we reach \lstinline[columns=fixed]!N-1!.
 
 Now let's look at the guts of the loop:
 \begin{lstlisting}
@@ -463,10 +463,10 @@ This is where we actually implement Euler's method.  First we find the accelerat
 \begin{lstlisting}
 v.append(v[i]+a*delta_t)
 \end{lstlisting}
-The |append| command takes whatever is in the parenthesis and adds it to the bottom of of whichever list is before the |.| . In this case, |v.append(v[i]+a*delta_t)| just adds |v[i]+a*delta_t| to the bottom of the |v| list.  
+The \lstinline[columns=fixed]!append! command takes whatever is in the parenthesis and adds it to the bottom of of whichever list is before the \lstinline[columns=fixed]!.! . In this case, \lstinline[columns=fixed]!v.append(v[i]+a*delta_t)! just adds \lstinline[columns=fixed]!v[i]+a*delta_t! to the bottom of the \lstinline[columns=fixed]!v! list.  
   
-We know from kinematics that $v_f=v_i+a\Delta t$, so the program just uses |v[i]| as $v_i$, to calculate our ``final" velocity.  Each time the computer goes through the loop, it will use a different value for |i|, and therefore a different value for |v[i]|.  
-If we start with |v=[0]|, the first time the computer gets to the loop, it will set |i=0|.  When it gets the the velocity line, it will go look up |v[0]|, which is just the first thing in |v|, or in our case, 0.  If |delta_t| is 0.1, then |v[0]+a*delta_t=0-9.8*.1=-.98|.  |v.append(-0.98)| would make our |v=[0,-0.98]|.  The second time through the loop, |i=1|, so |v[1]=-0.98|, since |v[1]| will give us the second thing in |v|.  Therefore |v[1]+a*delta_t=-.98-9.8*0.1=-1.96|, and with the append, our velocity list becomes |v=[0,-0.98,-1.96]|.  And the computer will continue repeating this process until we reach |i=N-1|.
+We know from kinematics that $v_f=v_i+a\Delta t$, so the program just uses \lstinline[columns=fixed]!v[i]! as $v_i$, to calculate our ``final" velocity.  Each time the computer goes through the loop, it will use a different value for \lstinline[columns=fixed]!i!, and therefore a different value for \lstinline[columns=fixed]!v[i]!.  
+If we start with \lstinline[columns=fixed]!v=[0]!, the first time the computer gets to the loop, it will set \lstinline[columns=fixed]!i=0!.  When it gets the the velocity line, it will go look up \lstinline[columns=fixed]!v[0]!, which is just the first thing in \lstinline[columns=fixed]!v!, or in our case, 0.  If \lstinline[columns=fixed]!delta_t! is 0.1, then \lstinline[columns=fixed]!v[0]+a*delta_t=0-9.8*.1=-.98!.  \lstinline[columns=fixed]!v.append(-0.98)! would make our |v=[0,-0.98]|.  The second time through the loop, \lstinline[columns=fixed]!i=1!, so \lstinline[columns=fixed]!v[1]=-0.98!, since \lstinline[columns=fixed]!v[1]! will give us the second thing in \lstinline[columns=fixed]!v!.  Therefore \lstinline[columns=fixed]!v[1]+a*delta_t=-.98-9.8*0.1=-1.96!, and with the append, our velocity list becomes |v=[0,-0.98,-1.96]\lstinline[columns=fixed]!.  And the computer will continue repeating this process until we reach !i=N-1|.
 
 We can also use our velocity to calculate our position.  We know from kinematics that $x_f=x_i+v_i\Delta t+\frac{1}{2}a\Delta t^2$.  In order for Euler's method to work, $\frac{1}{2}a\Delta t^2$ must be very small, so we ignore it.
 

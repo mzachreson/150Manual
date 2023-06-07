@@ -10,141 +10,10 @@
 \usepackage{mathtools}
 \renewcommand{\chaptername}{Lab}
 
-\setcounter{chapter}{8}
+\setcounter{chapter}{9}
 
 \begin{document}
-\chapter{Measurement and Uncertainty III}
-
-We should tie our numerical modeling knowledge into our understanding of
-uncertainty. We want to be able to numerically predict the outcome of an
-experiment. But that prediction should come with an uncertainty. How can we
-find an uncertainty for something we found numerically?
-
-Let's think about what we have been calling the high/low method of finding
-an uncertainty. Each measurement we make has an uncertainty. If we use those
-measurements to calculate things like we did a few weeks ago to find the
-value of $g,$ we have to combine or \emph{propagate} the uncertainties. We
-used large equations with derivatives to do this when we knew the function
-that described our prediction. But now we don't have an equation that tells
-us how a ball will fall with air resistance. We need another method for
-finding the uncertainty in a numerical solution like our Euler method. But
-we can use our high/low method to develop a new, computational method of
-finding the error.
-
-Think back to our lab where we measured $g.$ One way to find the uncertainty
-was to use our equation to find the combination of values that gave the
-largest estimate for $g.$ Then find the combination of values that gave the
-smallest estimate for $g.$ For example, when you found $g$ using the
-pendulum your equation should have been something like
-\[
-g=4\pi ^{2}\frac{L}{T^{2}}
-\]%
-we can find the uncertainty by taking
-\[
-g_{\max }=4\pi ^{2}\frac{L_{\max }}{T_{\min }^{2}}
-\]%
-where $L_{\max }=L+\delta L$ and $T_{\min }=T-\delta T.$ We can also find
-\[
-g_{\min }=4\pi ^{2}\frac{L_{\min }}{T_{\max }^{2}}
-\]%
-And then an estimate for the uncertainty would be half the difference
-between $g_{\max }$ and $g_{\min .}$
-
-Of course we can't exactly do this for our ball case because we don't know
-the function for our ball fall with air resistance. We don't know whether to
-use max or min input vales (like $L_{\max }$ and $T_{\min }$ above).
-Combinations that make the maximum distance and the minimum distance do
-exist. We just don't know how to form them. We have lots of inputs to our
-Euler's method. Each has uncertainty. How do we know which ones to use as
-maximum values and which ones to use as minimum values? We know that things
-get funny when we divide, so without knowing the actual function we don't
-know how to combine the input values to get the maximum or minimum distance.
-
-The answer is that we will have to guess, but guess systematically. That may
-sound unsettling, but we have a computer that can help us to guess. We can
-choose random values for each of our inputs such that the value we choose is
-within the uncertainty for each measurement. Then run the code and see how
-far away the ball gets when it lands. Then choose a new random set of inputs
-and see if it get's farther. The computer can do this quickly, so we can run
-hundreds of combinations in just a few minutes. For our
-ball-shot-out-of-a-cannon model, say, we used
-
-\begin{itemize}
-\item {\small The initial }$y${\small \ position of the projectile }$%
-y=\left( 27.00+1\right) \text{cm}$
-
-\item {\small The initial speed of the projectile. }$\left( 6.8+0.2\right)
-\text{m}/\text{s}$
-
-\item {\small The launch angle for the projectile (measured from the
-positive }$x${\small \ axis) }$\left( 45+1\right)^\circ$
-
-\item {\small The mass of the projectile.}$\left( 0.0003+0.00001\right)
-\text{kg}$
-
-\item {\small The radius of the projectile.}$\left( 0.0125+0.000\right) 1%
-\text{m}$
-
-\item {\small The drag coefficient for the projectile }$0.46+0.2$
-
-\item {\small The density of the air the projectile travels through }$\left(
-1.23+0.1\right) \text{kg}/\text{m}^{3}$
-
-\item {\small the acceleration due to gravity is }$\left(
-9.8004+0.001\right) \text{m}/\text{s}$
-\end{itemize}
-
-Then we could try again with the choices
-
-\begin{itemize}
-\item {\small The initial }$y${\small \ position of the projectile }$%
-y=\left( 27.00-1\right) \text{cm}$
-
-\item {\small The initial speed of the projectile. }$\left( 6.8-0.2\right)
-\text{m}/\text{s}$
-
-\item {\small The launch angle for the projectile (measured from the
-positive }$x${\small \ axis) }$\left( 45-1\right)^\circ$
-
-\item {\small The mass of the projectile.}$\left( 0.0003-0.00001\right)
-\text{kg}$
-
-\item {\small The radius of the projectile.}$\left( 0.0125-0.000\right) 1%
-\text{m}$
-
-\item {\small The drag coefficient for the projectile }$0.46-0.2$
-
-\item {\small The density of the air the projectile travels through }$\left(
-1.23-0.1\right) \text{kg}/\text{m}^{3}$
-
-\item {\small the acceleration due to gravity is }$\left(
-9.8004-0.001\right) \text{m}/\text{s}$
-\end{itemize}
-
-If we do this hundreds of times, each time with a different combination
-input parameters, we can take a mean and standard deviation and have our
-predicted value and uncertainty for our distance that the ball will go.
-
-We might not get the actual maximum (or minimum distance) combination
-without trying millions of combinations (maybe more!). But knowing some
-statistics, we can still estimate the uncertainty We can average our
-predicted distances and use this average as our prediction for where the
-ball will hit. We can take a standard deviation of our predicted distances
-and use this for an uncertainty. A standard deviation of the mean might be
-even better.
-
-This is a little like throwing darts at a target and taking the mean and
-standard deviation to tell where we were aiming and with what precision. But
-now we are doing that with our numerical prediction. We make many
-predictions with our inputs within their respective uncertainties, and then
-average at the end.
-
-We know that when we use a standard deviation for our uncertainty, we miss
-some cases, only 68\% of the predicted distances will fall within that
-standard deviation. So it is not as important to run our code millions of
-times if we can make due with a standard deviation as our estimate of
-uncertainty. A few hundred combinations should be enough.\pagebreak
-
+\chapter[Numerical Modeling III]{Numerical Modeling and Uncertainty}
 \section{Assignment: Modeling and Uncertainty}
 
 In this lab we will finally test our numerical modeling of a projectile. We
@@ -161,6 +30,16 @@ you only do part of it? The way this is done is to write down the results
 obtained by the other subgroups, and refer to their lab notebooks for the
 details.
 
+To help determine how you will break things up, there are four major parts to this lab:
+
+\begin{enumerate}
+\item Predicting the range of the ball using Euler's method plus Monte Carlo error propagation.
+\item Measuring the drag coefficient of the Styrofoam ball
+\item Measuring the initial velocity of the Styrofoam ball
+\item Actually firing the cannon and confirming your measurements
+
+\end{enumerate}
+\subsection{Predicting the range of the ball}
 \begin{enumerate}
 \item \textbf{Predict} the maximum range for the path of a Styrofoam ball
 (or a plastic ball if we don't have any Styrofoam balls) shot out of the
@@ -169,8 +48,8 @@ written by one (or more) of the members of your group that has been changed
 so that it can find the error estimate as described in today's lab reading.
 
 \item Determine the uncertainty in your prediction with your new code that
-chooses values for the input parameters randomly from within the parameter
-uncertainty ranges. This\sidenote{Randomly choosing values lets the Central Limit Theorem apply.} is actually more efficient than trying to pick
+chooses values for the input parameters randomly\sidenote{Make use of the normal function from numpy as described in the chapter introduction.} from within the parameter
+uncertainty ranges. This is actually more efficient than trying to pick
 values in a non-random way to cover all possible combinations of
 uncertainties! You will need to take about $100$ or more sets of parameters
 to get a good estimate, but if you built your code so you can easily change
@@ -178,26 +57,6 @@ your parameters, this will go quickly (if you put actual numbers into your
 equations in the previous labs, it might be faster to fix your Python code
 first to make this part go more quickly. If you need help, call me over).
 
-
-\begin{itemize}
-\item This function will help you randomly generate values in your uncertainty range.  Some parts were intentionally left blank for you to fill in.
-\begin{Verbatim}
-#Import a random number generator
-from random import random
-
-#Create a function that takes in a value and an uncertainty
-#and returns a value in that range
-def select_val(val,uncert):
-    #Generate a random number between 0 and 1
-    my_rand = random()
-    #Shift the random number so that it falls between -1 and 1
-    my_rand =
-    #Convert that random number to a shift away from the value
-    val_shift =
-    #Give back the shifted value
-    return val+val_shift
-
-\end{Verbatim}
 
 
 
@@ -210,7 +69,9 @@ result:
 
 \item Additionally, you need to be able to find where the ball hits the ground.  You can do this by either changing your Euler \code{for} loop into a \code{while} loop, or by inserting an \code{if}\sidenote{The command \code{break} will tell your program to exit whatever loop it is currently in.} statement.
 
-\end{itemize}
+\end{enumerate}
+\subsection{Finding the drag coefficient}
+\begin{enumerate}
 \item You will need to find the drag coefficient. A subteam should find a
 value (and uncertainty) for the drag coefficient. One way to do this is to
 use our high speed cameras and film the ball dropping. Since there is
@@ -238,9 +99,27 @@ air flow hitting the ground, so don't use positions that are close to the
 ground.
 
 \item I suggest you have a team of people from your group do this while a
-second team modify your MatLab code. Remember you need an uncertainty in $D.$
+second team modify your Python code. Remember you need an uncertainty in $D.$
 \end{itemize}
+\end{enumerate}
+\subsection{Finding the launch speed of the styrofoam ball}
+\begin{enumerate}
+\item You will need to find the launch speed of the ball, with its uncertainty. Air resistance makes a big enough impact that using Logger Pro and Video Analysis isn't feasible. Instead, you can find the velocity using a photogate set up where the ball exits the cannon. A few notes:
+\begin{itemize}
+\item As a reminder, a photogate shows the time that a laser was blocked, so to turn that into a speed, you'll need to divide a distance by the time
 
+\item You can get uncertainty in time through making several measurements, then finding the average and standard deviation of the mean.
+
+\item The distance to use is a little more complicated than just the uncertainty in the diameter of the ball. If the laser isn't perfectly aligned with the center of the ball as it goes through, then the length of the ball that blocks the laser will be shorter than the diameter (i.e. less ball will travel through the laser beam). With a bit of geometry, you can show that \[d_{beam} = d_{ball}\sqrt{1-\alpha^2}\] where $d_{beam}$ is the amount of ball that went through the beam, $d_{ball}$ is the actual diameter of the ball, and $\alpha$ is how far from the center (as a ratio of the radius) of the ball the beam is.
+
+Here's an example on how to use this equation: imagine I have a ball with a diameter of 2cm, and I think that I can confidently keep the laser within 0.5 cm of the center of the ball (50\% of the radius), the smallest diameter that I would expect to pass through the beam would be: 
+\[d_{beam} = 2cm * \sqrt{1-0.5^2} = 1.73  cm \approx 1.7 cm \]
+Since I'd expect my diameter  to be somewhere between that number and 2 cm, I'd quote the diameter that passes through the beam to be $ 1.85 \pm 0.15$ cm.
+\end{itemize}
+\end{enumerate}
+
+\subsection{Actually Firing the cannon}
+\begin{enumerate}
 \item Verify the prediction. Did the ball land within your error range? If
 you use the digital cameras again for this part, you can determine if the
 flight path falls within the range of possible flight paths. A figure like

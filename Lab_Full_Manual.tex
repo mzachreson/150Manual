@@ -8,7 +8,37 @@
   \usepackage{marginfix}
 
 \usepackage{mathtools}
+\usepackage{listings}
+\usepackage{tabularray,varwidth}
+\usepackage{color}
 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3, upquote=true}
+
+%\lstMakeShortInline[columns=fixed]|
+
+\usepackage{xcolor}
+\usepackage{changepage}
+\usepackage{enumitem}
+\usepackage{geometry}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
 
 
@@ -16,6 +46,21 @@
 
 
 \usepackage{standalone}
+
+% Set the margins for US Letter paper
+    \setlength{\marginparwidth}{2in}
+    \setlength{\marginparsep}{0.25in}
+    \setlength{\oddsidemargin}{0.0in}
+    \setlength{\evensidemargin}{1.5in}
+    \setlength{\textwidth}{5in}
+    \setlength{\topmargin}{0in}
+    \setlength{\headheight}{0.2in}
+    \setlength{\headsep}{0.35in}
+    \setlength{\textheight}{8.4in}
+    \setlength{\footskip}{0.35in}
+    \setlength{\columnsep}{0.35in}
+    \raggedbottom
+    \renewcommand{\baselinestretch}{1}
 
 \title{Physics 150 Lab Manual}
 \author{R. Todd Lines \and Matthew R. Zachreson}
@@ -46,7 +91,7 @@
  \vfill
 
 
- {\footnotesize $\copyright$ 2023 R. Todd Lines and Matthew R. Zachreson
+ {\footnotesize $\copyright$ \the\year{} R. Todd Lines and Matthew R. Zachreson
                Brigham Young University--Idaho}
 
  \vskip.5truein
@@ -61,7 +106,7 @@
 
 
  \cleardoublepage \phantomsection
- \addcontentsline{toc}{chapter}{Table of Contents}
+% \addcontentsline{toc}{chapter}{Table of Contents}
 \tableofcontents
 \mainmatter
 \part{Lab Introductions}
@@ -69,6 +114,13 @@
 \include{Lab2_intro}
 \include{Lab3_intro}
 \include{Lab4_intro}
+\include{Lab5_intro}
+\chapter{Experimental Design III}
+There is no introduction for this Lab in order to give you time to work on lab proposals.
+
+\include{Lab7_intro}
+\include{Lab8_intro}
+\include{Lab9_intro}
 
 \part{Lab Assignments}
 %Start Counting Back at 1
@@ -81,7 +133,8 @@
 \include{Lab4}
 \include{Lab5}
 \include{Lab6}
-%\include{Lab7}
+\include{Lab7}
 \include{Lab8}
+\include{Lab9}
 
 \end{document}

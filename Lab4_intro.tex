@@ -29,11 +29,11 @@ Recommended reading: Introduction to Scientific Computing in Python, by Nelson a
 \begin{enumerate}
 \item A mass oscillating up and down on a spring should have a period $T$ of $T=2\pi\sqrt{m/k}$ where $m$ is the mass of the mass and $k$ is the stiffness of the spring.  In your experiment, the dependent variable is $T$, and your independent variable is $m$.  What is the proper linearized version of the period equation?
 \item Here is a simple Python function:
-\begin{Verbatim}
+\begin{lstlisting}
 def switch(a,b):
     return b,a
 
-\end{Verbatim}
+\end{lstlisting}
 How would I use it to switch the values stored in variables \code{x} and \code{y}?
 \item Last week you calculated the acceleration due to gravity of a tennis ball by timing how long it took to fall.  How do the experimental design steps in this reading apply to your process?
 \end{enumerate}
@@ -94,7 +94,7 @@ For reference, here is a figure with the best fit line for to the data.  The red
 \end{center}
 
 Here's an example of a Python function that takes in x and y values and returns the slope and intercept of the best fit line\sidenote{It will be up to you to add a part that calculates their errors.}.  It would be very go practice to read through it and see if you can figure out what each line does.
-\begin{Verbatim}
+\begin{lstlisting}
 def linear_least_squares(x,y):
     #Import numpy
     import numpy as np
@@ -120,10 +120,10 @@ def linear_least_squares(x,y):
 
     return slope, intercept
 
-\end{Verbatim}
+\end{lstlisting}
 
 Once coded, you can use the function like this:
-\begin{Verbatim}
+\begin{lstlisting}
 x_data = [10,20,30,40,50]
 y_data = [20,40,60,80,100]
 
@@ -133,7 +133,7 @@ m,b = linear_least_squares(x_data,y_data)
 #Now the slope of my fit is stored in m
 #and the intercept is stored in b
 
-\end{Verbatim}
+\end{lstlisting}
 
 
 

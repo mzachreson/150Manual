@@ -85,42 +85,42 @@ In order to fit a line to your data, you'll need to teach Python how to do a lin
 \begin{enumerate}
 \item Linearize your equation.  Remember, linear least squares fitting only works on lines.
 \item Type out the example program given in this lab's intro, and save it in the folder where you have been saving your other programs from lab.  Make sure that you match the indentation from the example.  Python uses indentation to tell where functions end.  Here's a quick example:
-\begin{Verbatim}
+\begin{lstlisting}
 def line(x,m,b):
     return m*x+b
 
-\end{Verbatim}
+\end{lstlisting}
 
 Notice the difference in indentation between the two lines. The "def" command tells Python that you want to create your own function.  In this case, the function is called \code{line} and takes inputs \code{x}\sidenote{This function assumes that \code{x} is a numpy array.  If it is a regular list, the multiplication won't work the way you expect it to.},\code{m}, and \code{b}.  The return command tells Python what you want to get out of your function.  You could define a function this way and get the same result:
 
-\begin{Verbatim}
+\begin{lstlisting}
 def line(x,m,b):
     y=m*x+b
     return y
 
-\end{Verbatim}
+\end{lstlisting}
 
 But you will get an error if you enter this:
-\begin{Verbatim}
+\begin{lstlisting}
 def line(x,m,b):
     y=m*x+b
 return y
 
-\end{Verbatim}
+\end{lstlisting}
 Indentation is very important in Python.  When you define a function, everything that is indented below it is counted as part of that function.  Not indenting the return statement tells Python that you've ended your function, and it won't know what to return.
 Here's one more example:
-\begin{Verbatim}
+\begin{lstlisting}
 def line(x,m,b):
     y=m*x+b
     return y
 
 y=line(5,2,1)
 
-\end{Verbatim}
+\end{lstlisting}
 The previous piece of code tells Python what we want our function to be.  Then,  the very last line (notice that it is not indented) tells Python that we want to use our function, and that we want \code{x=5}, \code{m=2}, and \code{b=1}.  Python will perform the operation and save the number 11 (the result of 5*2+1) into the variable \code{y}.  Python will also treat any variables inside of functions as separate from the ones outside, meaning the \code{y} in our function is independent of the \code{y} in the last line. Once you define a function, you can use it over and over again in your program.
 
 \item Test your function.  Put these lines of code {\em after} your function\sidenote{The \code{if __name__ == "__main__":} line tells Python to only run this part of the program when you are running this particular file.  If you leave it out, Python will run this test whenever you load your function into another file.}:
-\begin{Verbatim}
+\begin{lstlisting}
 if __name__ == "__main__":
     xdata=[1,2,3,4,5,6]
     ydata=[1,2,3,4,5,6]
@@ -132,13 +132,13 @@ if __name__ == "__main__":
     print('Slope: {}'.format(slope))
     print('Intercept: {}'.format(intercept))
 
-\end{Verbatim}
+\end{lstlisting}
 If your program is working properly, it will print:
-\begin{Verbatim}
+\begin{lstlisting}
 Slope: 1.0
 Intercept: 0.0
 
-\end{Verbatim}
+\end{lstlisting}
 
 \item It is also very important to be able to calculate error.  Modify the \code{linear_least_squares} function so that it also returns the error in the slope ($\sigma_m$) and intercept ($\sigma_b$).  As a reminder, these equations calculate the error:
 \[\sigma_m=\frac{\sigma_y}{\sqrt{N\left(\left<x^2\right>-\left<x\right>^2\right)}}\]
@@ -152,19 +152,19 @@ The error in both the slope and intercept should be zero if your fit is working 
 Now start building a script to fit this week's data.
 \begin{enumerate}
 \item Open up a new Python script and save it in the same directory as your least squares file.  Put this command at the top of your file: (For this example, the file with the least squares fitting functions in it was saved with the name \code{linear_least_squares.py}, change the name to match accordingly.)
-\begin{Verbatim}
+\begin{lstlisting}
 import linear_least_squares
 
-\end{Verbatim}
+\end{lstlisting}
 This line tells Python to load all of the functions in \code{linear_least_squares.py}.  You can now use your least squares fitting function in this program.
 
 \item Load your data into your program. Doing math with data sets is easier in Python if you use the numpy library.  It can be very helpful to save our data like this\sidenote{It would be good to give your data more descriptive names than \code{x_data} and \code{y_data}, and add comments.}:
-\begin{Verbatim}
+\begin{lstlisting}
 import numpy as np
 x_data=np.asarray([1,2,3,4,5])
 y_data=np.asarray([2.1, 3.9, 5.8, 8.4, 11])
 
-\end{Verbatim}
+\end{lstlisting}
 As an experiment, tell Python to \code{print(x_data*y_data)} and see what happens.    Numpy arrays can only have numbers in them, and so multiplying two numpy arrays will multiply each item in the list individually.  Since Python lists can have anything in them (numbers, words, other lists) Python doesn't have a built in way to do math on entire lists without doing quite a bit more work.  That's mostly because it doesn't make any sense to say \code{5*'hello'}.
 
 \item Do a least squares fit to your data using your fitting functions.

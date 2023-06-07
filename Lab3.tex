@@ -79,20 +79,20 @@ A spreadsheet program (e.g. MS Excel or LibreCalc) can graph data, and so can Lo
 
 In this class, we are using Python, so you should try making your plot in Python.  Last week, we used matplotlib to build a histogram. The command for building a plot with errorbars is very similar.  Assuming that you've imported matplotlib as \code{plt}, the command looks like this:
 
-\begin{Verbatim}
+\begin{lstlisting}
 plt.errorbar(x,y,xerr=xerr_variable,yerr=yerr_variable,fmt='o')
-\end{Verbatim}
+\end{lstlisting}
 
 \code{xerr} and \code{yerr} are optional commands. If you you want error bars in the x direction, and you've saved the size of your x error in the variable \code{my_x_err}, sometime after your x and y lists, you'd include the command \code{xerr=my_x_err}. If you don't have any x-error bars, leave out \code{xerr}.
 
   Try to make a plot of the three different values you found for $g$, with errorbars, by using the \code{errorbar} command and by borrowing and adapting parts of last week's program. The commands for labeling the axes, title, etc. for an \code{errorbar} plot are the same as the commands for a histogram.
 
 Additionally, you can change the numbers marking the x-axis to string labels if you put these two lines of code\sidenote{This code assumes that you saved your x-values in the variable \code{x}.} somewhere after you make your plot, but before you save it:
-\begin{Verbatim}
+\begin{lstlisting}
 labels = ['Stopwatch','Pendulum','Video']
 plt.xticks(x, labels)
 
-\end{Verbatim}
+\end{lstlisting}
 
 
 

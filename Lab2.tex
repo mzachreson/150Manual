@@ -70,33 +70,33 @@ When programming, it can be really helpful to make notes in your lab notebook ab
 
 To begin writing your program, open up your favorite plain text editor.  I like notepad++ for windows or text wrangler on mac. Or, if you downloaded Python from Enthought or Anaconda you can use Canopy (Enthought) or Spyder (Anaconda).   Enter the walking data like so: (Be sure to use the class data, not this sample data.)
 
-\begin{Verbatim}
+\begin{lstlisting}
 #Our walking data
 data = [34, 38, 33, 38, 38, 36, 35, 47,36, 32, 40, 40,
        45, 36, 43, 38, 48, 40, 40, 38, 43, 40, 39, 36, 46,
        34, 37, 33, 32, 34 ]
 print(data)
 
-\end{Verbatim}
+\end{lstlisting}
 The first line is called a comment.  The \code{#} tells the Python interpreter (the thing that runs Python) to ignore that line.  You should use comments to describe what your are doing in your program, that way you remember what it was later, or if anyone else has to read it they'll know what you did.  There will not be any more example comments in this tutorial.  {\em You will have to come up with your own.}
 
 Let's look at the next set of lines:
-\begin{Verbatim}
+\begin{lstlisting}
 data = [34, 38, 33, 38, 38, 36, 35, 47,36, 32, 40, 40,
        45, 36, 43, 38, 48, 40, 40, 38, 43, 40, 39, 36, 46,
        34, 37, 33, 32, 34 ]
 
-\end{Verbatim}
+\end{lstlisting}
 They load our walking data into what is called a list.  It's a way to save our data under a different name for easier access.
 The \code{print(data)} command tells the computer to print out what we've saved in data.
 
 Save your file with the extension \code{.py}. (Example: \code{myFile.py})  That tells your computer that it is a Python script.
 
 If you are using Canopy or Spyder, you can run your script by clicking play or hitting f5.  If you aren't using one of those, open up your command line on Windows or the terminal on Linux or Mac.  Navigate the where you saved your file (ask the instructor for help if you need it) and type in the command:
-\begin{Verbatim}
+\begin{lstlisting}
 Python 'myFile.py'
 
-\end{Verbatim}
+\end{lstlisting}
 but insert your file name. That tells your computer to run the Python script.  You should see your data printed out on the screen.
 
 \subsubsection{Finding the Mean, Median, and Standard deviation}
@@ -104,12 +104,12 @@ but insert your file name. That tells your computer to run the Python script.  Y
 First, remove\sidenote{You can remove code by either deleting it, or comment it out by putting a \code{\#} at the beginning of the line.  Commenting out old pieces of code can be really helpful if it's something you'd like to remember, or might use again.} the \code{print(data)} line from your program. We don't need to have the computer spit that out again and again.
 
 Add these lines to your script:
-\begin{Verbatim}
+\begin{lstlisting}
 import numpy as np
 dataMean=np.sum(data)/len(data)
 print('Mean:  {0:.2f}'.format(dataMean))
 
-\end{Verbatim}
+\end{lstlisting}
 
 The first line loads a library called \code{numpy}.  Python keeps a lot of functions in separate libraries.  Loading one is sort of like grabbing a book with the right set of instructions in it.  Now, all of the \code{numpy} functions are stored in the letters \code{np}.
 
@@ -118,14 +118,14 @@ The next line creates a variable called \code{dataMean}. The numpy \code{sum} co
 The third line prints \code{dataMean}.  Save your program again and run it to see what happens.  Try changing the 2 in the print command line to a 3, save it, run it again, and see what has changed.
 
 Numpy has a function that will calculate the mean for you.  Here's our script from above with one addition: \code{dataMeanNp} saves the mean of the data as calculated by numpy.
-\begin{Verbatim}
+\begin{lstlisting}
 import numpy as np
 dataMean=np.sum(data)/len(data)
 print('Mean:  {0:.2f}'.format(dataMean))
 dataMeanNp=np.mean(data)
 print('Numpy Mean:  {0:.2f}'.format(dataMeanNp))
 
-\end{Verbatim}
+\end{lstlisting}
 
 
 Your assignment for this part is to {\em add} these parts to your program:
@@ -136,7 +136,7 @@ Your assignment for this part is to {\em add} these parts to your program:
 Once you find the median and standard deviation, tell your script to print the median with no decimal places and to print the standard deviation to three decimal places.
 
 You should also include {\em comments} in your program.  Comments are notes for people to read, but that the computer will ignore.  You can start a comment with the \code{#} character.  Part of keeping a good lab notebook is printing out copies of your programs, complete with comments. Here's the example program, all in one place, with good comments added:
-\begin{Verbatim}
+\begin{lstlisting}
 #Load the class walking times into the variable "data"
 data = [34, 38, 33, 38, 38, 36, 35, 47,36, 32, 40, 40,
        45, 36, 43, 38, 48, 40, 40, 38, 43, 40, 39, 36, 46,
@@ -156,13 +156,13 @@ dataMeanNp=np.mean(data)
 #Print the mean calculated from numpy's function.
 print('Numpy Mean:  {0:.2f}'.format(dataMeanNp))
 
-\end{Verbatim}
+\end{lstlisting}
 
 \subsubsection{Making a histogram}
 
 Adding the following code to your script to make the histogram:
 
-\begin{Verbatim}
+\begin{lstlisting}
 import matplotlib.pyplot as plt
 plt.hist(data, 20, normed=0, facecolor='green', alpha=0.75)
 
@@ -171,7 +171,7 @@ plt.ylabel('My y axis label')
 plt.title('My Title')
 plt.savefig('myPlot.pdf')
 
-\end{Verbatim}
+\end{lstlisting}
 
 This script will make a histogram with 20 bins and save it to the file \code{myPlot.pdf}.  In your program you should:
 \begin{itemize}
